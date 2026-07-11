@@ -35,6 +35,9 @@
             <feGaussianBlur stdDeviation="14" result="blur"/>
             <feComposite in="SourceGraphic" in2="blur" operator="over"/>
           </filter>
+          <clipPath id="f-label-clip">
+            <rect x="42" y="148" width="96" height="122" rx="4"/>
+          </clipPath>
         </defs>
 
         <!-- Glow orb behind bottle -->
@@ -56,14 +59,18 @@
         <!-- Label -->
         <rect x="42" y="148" width="96" height="122" rx="4" fill="rgba(247,243,236,0.82)" stroke="rgba(176,137,74,0.28)" stroke-width="0.9"/>
 
-        <text x="90" y="174" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#38452f" letter-spacing="0.5">Aurelia</text>
-        <line x1="55" y1="180" x2="125" y2="180" stroke="#b0894a" stroke-width="0.7" opacity="0.55"/>
-        <text x="90" y="197" text-anchor="middle" font-family="Georgia, serif" font-size="8.5" fill="#221f1a" letter-spacing="2">MIDNIGHT</text>
-        <text x="90" y="210" text-anchor="middle" font-family="Georgia, serif" font-size="8.5" fill="#221f1a" letter-spacing="2">RENEWAL</text>
-        <line x1="68" y1="217" x2="112" y2="217" stroke="#b0894a" stroke-width="0.6" opacity="0.45"/>
-        <text x="90" y="229" text-anchor="middle" font-family="Georgia, serif" font-size="7" fill="#6b6459" letter-spacing="1">OVERNIGHT SERUM</text>
-        <text x="90" y="256" text-anchor="middle" font-family="Georgia, serif" font-size="6.5" fill="#6b6459" letter-spacing="0.5">2% Retinal · Bakuchiol · Squalane</text>
-        <text x="90" y="270" text-anchor="middle" font-family="Georgia, serif" font-size="6" fill="#6b6459" letter-spacing="0.3">30 ml / 1 fl oz</text>
+        <g clip-path="url(#f-label-clip)">
+          <text x="90" y="174" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#38452f" letter-spacing="0.5">Aurelia</text>
+          <line x1="55" y1="180" x2="125" y2="180" stroke="#b0894a" stroke-width="0.7" opacity="0.55"/>
+          <text x="90" y="196" text-anchor="middle" font-family="Georgia, serif" font-size="8.5" fill="#221f1a" letter-spacing="2">MIDNIGHT</text>
+          <text x="90" y="208" text-anchor="middle" font-family="Georgia, serif" font-size="8.5" fill="#221f1a" letter-spacing="2">RENEWAL</text>
+          <line x1="68" y1="215" x2="112" y2="215" stroke="#b0894a" stroke-width="0.6" opacity="0.45"/>
+          <text x="90" y="226" text-anchor="middle" font-family="Georgia, serif" font-size="7" fill="#6b6459" letter-spacing="1">OVERNIGHT SERUM</text>
+          <line x1="58" y1="232" x2="122" y2="232" stroke="#b0894a" stroke-width="0.4" opacity="0.25"/>
+          <text x="90" y="242" text-anchor="middle" font-family="Georgia, serif" font-size="6" fill="#6b6459" letter-spacing="0.3">2% Retinal · Bakuchiol</text>
+          <text x="90" y="252" text-anchor="middle" font-family="Georgia, serif" font-size="6" fill="#6b6459" letter-spacing="0.3">· Squalane</text>
+          <text x="90" y="264" text-anchor="middle" font-family="Georgia, serif" font-size="5.5" fill="#6b6459" letter-spacing="0.2">30 ml / 1 fl oz</text>
+        </g>
 
         <!-- Shoulder / neck -->
         <path d="M50 112 C44 96, 60 80, 70 65 L70 44 L110 44 L110 65 C120 80, 136 96, 130 112 Z"

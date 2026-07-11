@@ -77,6 +77,9 @@
             <clipPath id="bottle-clip">
               <path d="M42 90 C36 92, 28 100, 28 110 L28 260 C28 272, 34 278, 70 278 C106 278, 112 272, 112 260 L112 110 C112 100, 104 92, 98 90 Z"/>
             </clipPath>
+            <clipPath id="hero-label-clip">
+              <rect x="35" y="120" width="70" height="95" rx="3"/>
+            </clipPath>
           </defs>
 
           <!-- Bottle shadow on pedestal -->
@@ -95,19 +98,16 @@
           <!-- Label area -->
           <rect x="35" y="120" width="70" height="95" rx="3" fill="rgba(247,243,236,0.78)" stroke="rgba(176,137,74,0.30)" stroke-width="0.8"/>
 
-          <!-- Label text: Brand name -->
-          <text x="70" y="145" text-anchor="middle" font-family="Georgia, serif" font-size="10" font-style="italic" font-weight="400" fill="#38452f" letter-spacing="0.5">Aurelia</text>
-          <!-- Thin divider -->
-          <line x1="45" y1="150" x2="95" y2="150" stroke="#b0894a" stroke-width="0.6" opacity="0.6"/>
-          <!-- Product name -->
-          <text x="70" y="163" text-anchor="middle" font-family="Georgia, serif" font-size="6.5" font-weight="400" fill="#221f1a" letter-spacing="1.5">MIDNIGHT</text>
-          <text x="70" y="172" text-anchor="middle" font-family="Georgia, serif" font-size="6.5" font-weight="400" fill="#221f1a" letter-spacing="1.5">RENEWAL</text>
-          <!-- Thin divider -->
-          <line x1="55" y1="177" x2="85" y2="177" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
-          <!-- Descriptor -->
-          <text x="70" y="188" text-anchor="middle" font-family="Georgia, serif" font-size="5.5" fill="#6b6459" letter-spacing="0.8">Overnight Serum</text>
-          <!-- Volume -->
-          <text x="70" y="203" text-anchor="middle" font-family="Georgia, serif" font-size="5" fill="#6b6459" letter-spacing="0.5">30 ml / 1 fl oz</text>
+          <!-- Label text clipped to label rect -->
+          <g clip-path="url(#hero-label-clip)">
+            <text x="70" y="145" text-anchor="middle" font-family="Georgia, serif" font-size="10" font-style="italic" font-weight="400" fill="#38452f" letter-spacing="0.5">Aurelia</text>
+            <line x1="45" y1="150" x2="95" y2="150" stroke="#b0894a" stroke-width="0.6" opacity="0.6"/>
+            <text x="70" y="163" text-anchor="middle" font-family="Georgia, serif" font-size="6.5" font-weight="400" fill="#221f1a" letter-spacing="1.5">MIDNIGHT</text>
+            <text x="70" y="172" text-anchor="middle" font-family="Georgia, serif" font-size="6.5" font-weight="400" fill="#221f1a" letter-spacing="1.5">RENEWAL</text>
+            <line x1="55" y1="177" x2="85" y2="177" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
+            <text x="70" y="188" text-anchor="middle" font-family="Georgia, serif" font-size="5.5" fill="#6b6459" letter-spacing="0.8">Overnight Serum</text>
+            <text x="70" y="203" text-anchor="middle" font-family="Georgia, serif" font-size="5" fill="#6b6459" letter-spacing="0.5">30 ml / 1 fl oz</text>
+          </g>
 
           <!-- Bottle shoulder / neck -->
           <path d="M42 90 C38 78, 48 68, 56 56 L56 38 L84 38 L84 56 C92 68, 102 78, 98 90 Z"

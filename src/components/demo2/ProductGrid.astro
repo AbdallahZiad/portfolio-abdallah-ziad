@@ -76,17 +76,22 @@ const products = [
                   <clipPath id={`clip-s-${product.id}`}>
                     <path d="M32 68 C28 70, 22 76, 22 84 L22 192 C22 200, 26 204, 55 204 C84 204, 88 200, 88 192 L88 84 C88 76, 82 70, 78 68 Z"/>
                   </clipPath>
+                  <clipPath id={`lbl-s-${product.id}`}>
+                    <rect x="30" y="84" width="50" height="64" rx="2"/>
+                  </clipPath>
                 </defs>
                 <ellipse cx="55" cy="208" rx="26" ry="5" fill={`${product.tint.dark}44`}/>
                 <path d="M32 68 C28 70, 22 76, 22 84 L22 192 C22 200, 26 204, 55 204 C84 204, 88 200, 88 192 L88 84 C88 76, 82 70, 78 68 Z" fill={`url(#grad-s-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
                 <rect x="23" y="112" width="65" height="91" fill={`url(#liq-s-${product.id})`} clip-path={`url(#clip-s-${product.id})`} opacity="0.55"/>
                 <path d="M35 72 C32 78, 29 88, 29 105 L29 195" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.32"/>
                 <rect x="30" y="84" width="50" height="64" rx="2" fill="rgba(247,243,236,0.78)" stroke="rgba(176,137,74,0.20)" stroke-width="0.7"/>
-                <text x="55" y="103" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-style="italic" fill="#38452f">Aurelia</text>
-                <line x1="37" y1="107" x2="73" y2="107" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
-                <text x="55" y="118" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.5">MIDNIGHT</text>
-                <text x="55" y="127" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.5">RENEWAL</text>
-                <text x="55" y="140" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459">30 ml</text>
+                <g clip-path={`url(#lbl-s-${product.id})`}>
+                  <text x="55" y="103" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-style="italic" fill="#38452f">Aurelia</text>
+                  <line x1="37" y1="107" x2="73" y2="107" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
+                  <text x="55" y="118" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.5">MIDNIGHT</text>
+                  <text x="55" y="127" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.5">RENEWAL</text>
+                  <text x="55" y="140" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459">30 ml</text>
+                </g>
                 <path d="M32 68 C28 58, 36 48, 43 38 L43 26 L67 26 L67 38 C74 48, 82 58, 78 68 Z" fill={`url(#grad-s-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
                 <rect x="41" y="10" width="28" height="20" rx="3" fill={product.tint.dark}/>
                 <ellipse cx="55" cy="8" rx="8" ry="5" fill={product.tint.dark}/>
@@ -109,17 +114,22 @@ const products = [
                   <clipPath id={`clip-e-${product.id}`}>
                     <path d="M20 70 C16 73, 14 80, 14 90 L14 195 C14 202, 20 206, 55 206 C90 206, 96 202, 96 195 L96 90 C96 80, 94 73, 90 70 Z"/>
                   </clipPath>
+                  <clipPath id={`lbl-e-${product.id}`}>
+                    <rect x="22" y="85" width="66" height="78" rx="2"/>
+                  </clipPath>
                 </defs>
                 <ellipse cx="55" cy="210" rx="32" ry="5.5" fill={`${product.tint.dark}33`}/>
                 <path d="M20 70 C16 73, 14 80, 14 90 L14 195 C14 202, 20 206, 55 206 C90 206, 96 202, 96 195 L96 90 C96 80, 94 73, 90 70 Z" fill={`url(#grad-e-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
                 <rect x="15" y="120" width="80" height="86" fill={`url(#liq-e-${product.id})`} clip-path={`url(#clip-e-${product.id})`} opacity="0.50"/>
                 <path d="M24 75 C21 82, 19 95, 19 115 L19 197" stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.28"/>
                 <rect x="22" y="85" width="66" height="78" rx="2" fill="rgba(247,243,236,0.80)" stroke="rgba(176,137,74,0.18)" stroke-width="0.7"/>
-                <text x="55" y="106" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-style="italic" fill="#38452f">Aurelia</text>
-                <line x1="30" y1="111" x2="80" y2="111" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
-                <text x="55" y="123" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.2">DEWPOINT</text>
-                <text x="55" y="133" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459" letter-spacing="0.8">HYDRATING ESSENCE</text>
-                <text x="55" y="150" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459">50 ml</text>
+                <g clip-path={`url(#lbl-e-${product.id})`}>
+                  <text x="55" y="106" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-style="italic" fill="#38452f">Aurelia</text>
+                  <line x1="30" y1="111" x2="80" y2="111" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
+                  <text x="55" y="123" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.2">DEWPOINT</text>
+                  <text x="55" y="133" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459" letter-spacing="0.8">HYDRATING ESSENCE</text>
+                  <text x="55" y="150" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459">50 ml</text>
+                </g>
                 <path d="M28 70 C24 58, 30 48, 40 36 L40 24 L70 24 L70 36 C80 48, 86 58, 82 70 Z" fill={`url(#grad-e-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
                 <rect x="43" y="10" width="24" height="17" rx="3" fill={product.tint.dark}/>
                 <rect x="41" y="22" width="28" height="4" rx="1" fill="#c9963e"/>
@@ -134,20 +144,21 @@ const products = [
                     <stop offset="40%" stop-color={product.tint.body} stop-opacity="0.70"/>
                     <stop offset="100%" stop-color={product.tint.dark} stop-opacity="0.30"/>
                   </linearGradient>
+                  <clipPath id={`lbl-t-${product.id}`}>
+                    <rect x="30" y="80" width="50" height="80" rx="2"/>
+                  </clipPath>
                 </defs>
                 <ellipse cx="55" cy="210" rx="22" ry="4.5" fill={`${product.tint.dark}33`}/>
-                <!-- Tube body -->
                 <rect x="26" y="60" width="58" height="150" rx="8" fill={`url(#grad-t-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
-                <!-- Highlight -->
                 <rect x="29" y="65" width="7" height="140" rx="3.5" fill="white" opacity="0.25"/>
-                <!-- Label -->
                 <rect x="30" y="80" width="50" height="80" rx="2" fill="rgba(247,243,236,0.82)" stroke="rgba(176,137,74,0.18)" stroke-width="0.7"/>
-                <text x="55" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-style="italic" fill="#38452f">Aurelia</text>
-                <line x1="36" y1="105" x2="74" y2="105" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
-                <text x="55" y="117" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.2">SUNLACE</text>
-                <text x="55" y="126" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#221f1a" letter-spacing="0.8">MINERAL SPF 45</text>
-                <text x="55" y="148" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459">40 g</text>
-                <!-- Tube neck + cap -->
+                <g clip-path={`url(#lbl-t-${product.id})`}>
+                  <text x="55" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-style="italic" fill="#38452f">Aurelia</text>
+                  <line x1="36" y1="105" x2="74" y2="105" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
+                  <text x="55" y="117" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.2">SUNLACE</text>
+                  <text x="55" y="126" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#221f1a" letter-spacing="0.8">MINERAL SPF 45</text>
+                  <text x="55" y="148" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459">40 g</text>
+                </g>
                 <rect x="40" y="32" width="30" height="30" rx="4" fill={product.tint.dark}/>
                 <rect x="43" y="34" width="6" height="26" rx="3" fill="white" opacity="0.18"/>
                 <rect x="38" y="26" width="34" height="8" rx="3" fill={product.tint.dark}/>
@@ -170,26 +181,27 @@ const products = [
                   <clipPath id={`clip-m-${product.id}`}>
                     <path d="M20 72 C17 75, 15 82, 15 91 L15 192 C15 200, 21 204, 55 204 C89 204, 95 200, 95 192 L95 91 C95 82, 93 75, 90 72 Z"/>
                   </clipPath>
+                  <clipPath id={`lbl-m-${product.id}`}>
+                    <rect x="22" y="85" width="66" height="78" rx="2"/>
+                  </clipPath>
                 </defs>
                 <ellipse cx="55" cy="208" rx="30" ry="5" fill={`${product.tint.dark}33`}/>
                 <path d="M20 72 C17 75, 15 82, 15 91 L15 192 C15 200, 21 204, 55 204 C89 204, 95 200, 95 192 L95 91 C95 82, 93 75, 90 72 Z" fill={`url(#grad-m-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
                 <rect x="16" y="128" width="79" height="76" fill={`url(#liq-m-${product.id})`} clip-path={`url(#clip-m-${product.id})`} opacity="0.55"/>
                 <path d="M24 77 C21 84, 19 96, 19 116 L19 195" stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.28"/>
-                <!-- Mist dots -->
                 <circle cx="74" cy="100" r="2" fill={product.tint.liquid} fill-opacity="0.35"/>
                 <circle cx="82" cy="94" r="1.5" fill={product.tint.liquid} fill-opacity="0.28"/>
                 <circle cx="80" cy="106" r="1.2" fill={product.tint.liquid} fill-opacity="0.22"/>
-                <!-- Label -->
                 <rect x="22" y="85" width="66" height="78" rx="2" fill="rgba(247,243,236,0.80)" stroke="rgba(176,137,74,0.18)" stroke-width="0.7"/>
-                <text x="55" y="106" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-style="italic" fill="#38452f">Aurelia</text>
-                <line x1="30" y1="111" x2="80" y2="111" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
-                <text x="55" y="123" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.2">ROSEWATER</text>
-                <text x="55" y="132" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#221f1a" letter-spacing="0.8">CALM TONER</text>
-                <text x="55" y="150" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459">100 ml</text>
-                <!-- Pump head -->
+                <g clip-path={`url(#lbl-m-${product.id})`}>
+                  <text x="55" y="106" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-style="italic" fill="#38452f">Aurelia</text>
+                  <line x1="30" y1="111" x2="80" y2="111" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
+                  <text x="55" y="123" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.2">ROSEWATER</text>
+                  <text x="55" y="132" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#221f1a" letter-spacing="0.8">CALM TONER</text>
+                  <text x="55" y="150" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459">100 ml</text>
+                </g>
                 <rect x="42" y="36" width="26" height="40" rx="4" fill={product.tint.dark}/>
                 <rect x="44" y="38" width="5" height="36" rx="2.5" fill="white" opacity="0.16"/>
-                <!-- Pump nozzle -->
                 <path d="M68 50 L82 50 L82 46 L68 46 Z" fill={product.tint.dark} rx="1"/>
                 <rect x="80" y="44" width="6" height="8" rx="1" fill={product.tint.dark}/>
                 <rect x="20" y="70" width="70" height="5" rx="1.5" fill="#c9963e"/>
@@ -211,17 +223,22 @@ const products = [
                   <clipPath id={`clip-d-${product.id}`}>
                     <path d="M30 65 C26 68, 22 76, 22 86 L22 192 C22 200, 26 204, 55 204 C84 204, 88 200, 88 192 L88 86 C88 76, 84 68, 80 65 Z"/>
                   </clipPath>
+                  <clipPath id={`lbl-d-${product.id}`}>
+                    <rect x="29" y="80" width="52" height="68" rx="2"/>
+                  </clipPath>
                 </defs>
                 <ellipse cx="55" cy="208" rx="26" ry="5" fill={`${product.tint.dark}40`}/>
                 <path d="M30 65 C26 68, 22 76, 22 86 L22 192 C22 200, 26 204, 55 204 C84 204, 88 200, 88 192 L88 86 C88 76, 84 68, 80 65 Z" fill={`url(#grad-d-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
                 <rect x="23" y="110" width="65" height="93" fill={`url(#liq-d-${product.id})`} clip-path={`url(#clip-d-${product.id})`} opacity="0.65"/>
                 <path d="M34 70 C31 78, 29 92, 29 110 L29 194" stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.32"/>
                 <rect x="29" y="80" width="52" height="68" rx="2" fill="rgba(247,243,236,0.78)" stroke="rgba(176,137,74,0.20)" stroke-width="0.7"/>
-                <text x="55" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-style="italic" fill="#38452f">Aurelia</text>
-                <line x1="35" y1="105" x2="75" y2="105" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
-                <text x="55" y="117" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.2">GOLDEN HOUR</text>
-                <text x="55" y="126" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#221f1a" letter-spacing="0.8">FACIAL OIL</text>
-                <text x="55" y="142" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459">30 ml</text>
+                <g clip-path={`url(#lbl-d-${product.id})`}>
+                  <text x="55" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-style="italic" fill="#38452f">Aurelia</text>
+                  <line x1="35" y1="105" x2="75" y2="105" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
+                  <text x="55" y="117" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.2">GOLDEN HOUR</text>
+                  <text x="55" y="126" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#221f1a" letter-spacing="0.8">FACIAL OIL</text>
+                  <text x="55" y="142" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459">30 ml</text>
+                </g>
                 <path d="M36 65 C32 52, 40 40, 47 30 L47 20 L63 20 L63 30 C70 40, 78 52, 74 65 Z" fill={`url(#grad-d-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
                 <rect x="43" y="6" width="24" height="16" rx="3" fill={product.tint.dark}/>
                 <ellipse cx="55" cy="5" rx="7" ry="4.5" fill={product.tint.dark}/>
@@ -249,27 +266,25 @@ const products = [
                   <clipPath id={`clip-j-${product.id}`}>
                     <path d="M16 82 L16 158 C16 166, 22 170, 70 170 C118 170, 124 166, 124 158 L124 82 Z"/>
                   </clipPath>
+                  <clipPath id={`lbl-j-${product.id}`}>
+                    <rect x="26" y="90" width="88" height="60" rx="2"/>
+                  </clipPath>
                 </defs>
                 <ellipse cx="70" cy="173" rx="42" ry="7" fill={`${product.tint.dark}33`}/>
-                <!-- Jar body -->
                 <path d="M16 82 L16 158 C16 166, 22 170, 70 170 C118 170, 124 166, 124 158 L124 82 Z" fill={`url(#grad-j-${product.id})`} stroke={product.tint.body} stroke-width="1.2"/>
-                <!-- Clay contents visible from top side -->
                 <rect x="17" y="130" width="107" height="40" fill={`url(#liq-j-${product.id})`} clip-path={`url(#clip-j-${product.id})`} opacity="0.50"/>
-                <!-- Glass highlight on body -->
                 <path d="M20 85 L20 162" stroke="white" stroke-width="6" stroke-linecap="round" opacity="0.28"/>
-                <!-- Label on body -->
                 <rect x="26" y="90" width="88" height="60" rx="2" fill="rgba(247,243,236,0.82)" stroke="rgba(176,137,74,0.18)" stroke-width="0.7"/>
-                <text x="70" y="110" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-style="italic" fill="#38452f">Aurelia</text>
-                <line x1="35" y1="115" x2="105" y2="115" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
-                <text x="70" y="127" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#221f1a" letter-spacing="1.5">SILT RENEWING</text>
-                <text x="70" y="137" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#221f1a" letter-spacing="1.5">CLAY MASK</text>
-                <text x="70" y="148" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#6b6459">60 ml</text>
-                <!-- Lid -->
+                <g clip-path={`url(#lbl-j-${product.id})`}>
+                  <text x="70" y="110" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-style="italic" fill="#38452f">Aurelia</text>
+                  <line x1="35" y1="115" x2="105" y2="115" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
+                  <text x="70" y="127" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#221f1a" letter-spacing="1.5">SILT RENEWING</text>
+                  <text x="70" y="137" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#221f1a" letter-spacing="1.5">CLAY MASK</text>
+                  <text x="70" y="148" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#6b6459">60 ml</text>
+                </g>
                 <path d="M10 75 L10 84 C10 88, 20 92, 70 92 C120 92, 130 88, 130 84 L130 75 C130 71, 120 68, 70 68 C20 68, 10 71, 10 75 Z" fill={`url(#lid-j-${product.id})`} stroke={product.tint.body} stroke-width="1.2"/>
                 <ellipse cx="70" cy="68" rx="60" ry="9" fill={`url(#lid-j-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
-                <!-- Lid highlight -->
                 <path d="M16 73 Q70 66, 124 73" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.30"/>
-                <!-- Gold band -->
                 <path d="M10 80 Q70 77, 130 80" stroke="#c9963e" stroke-width="2" stroke-linecap="round" opacity="0.70"/>
               </svg>
             )}

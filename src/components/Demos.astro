@@ -4,7 +4,7 @@ const demos = [
     href: "/demo/1",
     name: "Nebula",
     tag: "AI SaaS Platform",
-    variant: "saas",
+    preview: "/previews/demo1.jpg",
     accent: "#a855f7",
     line: "rgba(168, 85, 247, 0.45)",
   },
@@ -12,7 +12,7 @@ const demos = [
     href: "/demo/2",
     name: "Aurelia",
     tag: "Skincare · E-commerce",
-    variant: "shop",
+    preview: "/previews/demo2.jpg",
     accent: "#b0894a",
     line: "rgba(176, 137, 74, 0.5)",
   },
@@ -38,44 +38,14 @@ const demos = [
             style={`--accent:${d.accent};--line:${d.line}`}
             aria-label={`View the ${d.name} demo — ${d.tag}`}
           >
-            <div class={`demo-preview demo-${d.variant}`}>
-              {d.variant === "saas" && (
-                <div class="pv-saas">
-                  <div class="pv-bar">
-                    <span class="pv-dot" /><span class="pv-dot" /><span class="pv-dot" />
-                  </div>
-                  <div class="pv-kpis">
-                    <div class="pv-kpi"><b>48.2k</b><i>MAU</i></div>
-                    <div class="pv-kpi"><b>63%</b><i>Retention</i></div>
-                    <div class="pv-kpi"><b>$1.2M</b><i>Revenue</i></div>
-                  </div>
-                  <svg class="pv-chart" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true">
-                    <defs>
-                      <linearGradient id="pvg" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0" stop-color="#a855f7" stop-opacity="0.35" />
-                        <stop offset="1" stop-color="#a855f7" stop-opacity="0" />
-                      </linearGradient>
-                    </defs>
-                    <path d="M0 46 C30 44 40 20 66 26 S110 40 132 22 168 6 200 12 L200 60 L0 60 Z" fill="url(#pvg)" />
-                    <path d="M0 46 C30 44 40 20 66 26 S110 40 132 22 168 6 200 12" fill="none" stroke="#c084fc" stroke-width="2" />
-                  </svg>
-                </div>
-              )}
-
-              {d.variant === "shop" && (
-                <div class="pv-shop">
-                  <span class="pv-word">Aurelia</span>
-                  <div class="pv-bottle">
-                    <svg viewBox="0 0 40 72" aria-hidden="true">
-                      <rect x="15" y="2" width="10" height="8" rx="2" fill="#8a6f45" />
-                      <rect x="12" y="9" width="16" height="6" rx="2" fill="#a98a58" />
-                      <rect x="8" y="15" width="24" height="52" rx="8" fill="#e9e0cd" stroke="#c9bfa4" />
-                      <rect x="13" y="30" width="14" height="24" rx="3" fill="#fff" opacity="0.55" />
-                    </svg>
-                  </div>
-                  <div class="pv-price">Midnight Serum · <b>$86</b></div>
-                </div>
-              )}
+            <div class="demo-preview">
+              <img
+                src={d.preview}
+                alt={`${d.name} demo preview`}
+                class="demo-preview-img"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
 
             <div class="demo-meta">
@@ -151,83 +121,13 @@ const demos = [
     overflow: hidden;
   }
 
-  /* ---- SaaS (Nebula) preview ---- */
-  .demo-saas {
-    background: radial-gradient(120% 100% at 100% 0%, rgba(168, 85, 247, 0.18), transparent 60%),
-      #0b0a18;
-    padding: 14px;
-  }
-  .pv-bar {
-    display: flex;
-    gap: 5px;
-    margin-bottom: 12px;
-  }
-  .pv-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.18);
-  }
-  .pv-kpis {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 7px;
-    margin-bottom: 12px;
-  }
-  .pv-kpi {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
-    padding: 8px 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .pv-kpi b {
-    font-size: 0.82rem;
-    color: #f0e9ff;
-  }
-  .pv-kpi i {
-    font-style: normal;
-    font-size: 0.56rem;
-    letter-spacing: 0.04em;
-    color: #a48fce;
-    text-transform: uppercase;
-  }
-  .pv-chart {
+  /* ---- Screenshot previews ---- */
+  .demo-preview-img {
     width: 100%;
-    height: 42px;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
     display: block;
-  }
-
-  /* ---- Shop (Aurelia) preview ---- */
-  .demo-shop {
-    background: radial-gradient(120% 120% at 50% 120%, #efe7d9, #f7f3ec);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px;
-  }
-  .pv-word {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.15rem;
-    letter-spacing: 0.02em;
-    color: #38452f;
-  }
-  .pv-bottle svg {
-    width: 34px;
-    height: auto;
-    filter: drop-shadow(0 8px 10px rgba(56, 69, 47, 0.18));
-  }
-  .pv-price {
-    font-size: 0.66rem;
-    color: #6b6459;
-    letter-spacing: 0.02em;
-  }
-  .pv-price b {
-    color: #221f1a;
   }
 
   /* ---- Coming Soon card ---- */
@@ -291,14 +191,16 @@ const demos = [
     color: var(--text-dim);
   }
 
-  /* Tablet: 2-up hybrid. Third card spans the full row so nothing is orphaned. */
+  /* Tablet: 2-up hybrid. Third card spans the full row but is capped to one column
+     width (calc(50% - 12px) = half grid minus half the 24px gap) so its 16/11
+     preview stays the same height as the two real cards beside it. */
   @media (min-width: 641px) and (max-width: 980px) {
     .demo-grid {
       grid-template-columns: repeat(2, 1fr);
     }
     .demo-card:nth-child(3) {
       grid-column: 1 / -1;
-      max-width: 520px;
+      max-width: calc(50% - 12px);
       margin-inline: auto;
       width: 100%;
     }
