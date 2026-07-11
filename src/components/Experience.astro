@@ -1,0 +1,175 @@
+---
+const capabilities = [
+  {
+    title: "Async infrastructure",
+    body: "Background job systems handling hundreds of concurrent users without breaking a sweat.",
+  },
+  {
+    title: "Multi-tenant systems",
+    body: "Strict data isolation and per-tenant boundaries baked into the architecture.",
+  },
+  {
+    title: "Forecasting algorithms",
+    body: "Proprietary models that turn historical signal into forward-looking decisions.",
+  },
+  {
+    title: "OAuth orchestration",
+    body: "Multi-platform authentication flows connected and kept in sync.",
+  },
+  {
+    title: "AI data pipelines",
+    body: "Ingesting and structuring real business data into usable, queryable form.",
+  },
+  {
+    title: "Production deployment",
+    body: "SSL, CI/CD, load and stress testing — shipped and kept running.",
+  },
+];
+---
+
+<section class="section" id="experience">
+  <div class="container">
+    <div class="exp-head">
+      <div>
+        <span class="eyebrow" data-reveal>Experience</span>
+        <h2 class="section-title" data-reveal>
+          The work of a <span class="text-grad">whole team</span>, handled solo.
+        </h2>
+      </div>
+      <p class="exp-intro" data-reveal>
+        I build software most teams would split across several engineers —
+        architecture, backend, frontend, and deployment, handled end to end and solo.
+      </p>
+    </div>
+
+    <p class="exp-body" data-reveal>
+      The work spans the full depth of the stack: async infrastructure handling
+      hundreds of concurrent users, multi-tenant systems with strict data isolation,
+      proprietary forecasting algorithms, multi-platform OAuth orchestration, and AI
+      pipelines that ingest and structure real business data.
+    </p>
+
+    <div class="cap-grid">
+      {
+        capabilities.map((c, i) => (
+          <div class="cap-card" data-reveal style={`transition-delay:${i * 60}ms`}>
+            <div class="cap-index">0{i + 1}</div>
+            <h3>{c.title}</h3>
+            <p>{c.body}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="exp-note glass" data-reveal>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>
+      <p>
+        Engagements tend to start narrow and grow.
+        <strong>Clients expand scope as the system proves itself.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .exp-head {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 40px;
+    align-items: end;
+  }
+  .exp-intro {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  .exp-body {
+    margin-top: 40px;
+    max-width: 90ch;
+    color: var(--text-muted);
+    font-size: clamp(1.05rem, 2vw, 1.28rem);
+    line-height: 1.7;
+  }
+
+  .cap-grid {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .cap-card {
+    background: var(--bg);
+    padding: 32px 28px;
+    transition: background 0.35s var(--ease), opacity 0.7s var(--ease),
+      transform 0.7s var(--ease);
+    position: relative;
+  }
+  .cap-card:hover {
+    background: var(--surface-2);
+  }
+  .cap-index {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--neon);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+  .cap-card h3 {
+    font-size: 1.12rem;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+  }
+  .cap-card p {
+    margin-top: 10px;
+    color: var(--text-muted);
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
+  .exp-note {
+    margin-top: 32px;
+    padding: 26px 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-left: 2px solid var(--neon);
+  }
+  .exp-note svg {
+    width: 30px;
+    height: 30px;
+    color: var(--neon);
+    flex-shrink: 0;
+  }
+  .exp-note p {
+    font-size: 1.08rem;
+    color: var(--text-muted);
+  }
+  .exp-note strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  @media (max-width: 900px) {
+    .exp-head {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .cap-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 560px) {
+    .cap-grid {
+      grid-template-columns: 1fr;
+    }
+    .exp-note {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+    }
+  }
+</style>

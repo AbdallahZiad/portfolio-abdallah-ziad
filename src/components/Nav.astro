@@ -1,0 +1,233 @@
+---
+const links = [
+  { label: "Build", href: "#build" },
+  { label: "Work", href: "#experience" },
+  { label: "Specialization", href: "#specialization" },
+  { label: "Skills", href: "#skills" },
+];
+---
+
+<header class="nav" id="nav">
+  <div class="nav-inner container">
+    <a href="#top" class="brand" aria-label="Abdallah Ziad — home">
+      <span class="brand-mark">AZ</span>
+      <span class="brand-name">Abdallah Ziad</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+
+    <a href="#contact" class="btn btn-primary nav-cta">Get in Touch</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="nav-mobile" id="navMobile">
+    {links.map((l) => <a href={l.href} class="nav-mobile-link">{l.label}</a>)}
+    <a href="#contact" class="btn btn-primary nav-mobile-cta">Get in Touch</a>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    transition: background 0.4s var(--ease), border-color 0.4s var(--ease),
+      backdrop-filter 0.4s var(--ease);
+    border-bottom: 1px solid transparent;
+  }
+  .nav.scrolled,
+  .nav.menu-open {
+    background: rgba(5, 7, 13, 0.72);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border-bottom-color: var(--border);
+  }
+  .nav.menu-open {
+    background: rgba(5, 7, 13, 0.94);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+  }
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #04121f;
+    background: var(--grad);
+    box-shadow: 0 4px 18px rgba(25, 200, 255, 0.35);
+  }
+  .brand-name {
+    font-size: 0.98rem;
+    letter-spacing: 0.01em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 34px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .nav-links a {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    transition: color 0.25s var(--ease);
+    position: relative;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 1px;
+    background: var(--neon);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s var(--ease);
+  }
+  .nav-links a:hover {
+    color: var(--text);
+  }
+  .nav-links a:hover::after {
+    transform: scaleX(1);
+  }
+  .nav-cta {
+    --pad: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    cursor: pointer;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    margin-inline: auto;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-mobile {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 24px 26px;
+    background: rgba(5, 7, 13, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s var(--ease), opacity 0.3s var(--ease);
+    opacity: 0;
+  }
+  .nav-mobile.open {
+    max-height: 380px;
+    opacity: 1;
+  }
+  .nav-mobile-link {
+    padding: 14px 4px;
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s var(--ease);
+  }
+  .nav-mobile-link:hover {
+    color: var(--text);
+  }
+  .nav-mobile-cta {
+    margin-top: 18px;
+    justify-content: center;
+  }
+
+  /* Keep center links from colliding with brand/CTA on mid widths */
+  @media (max-width: 1060px) {
+    .nav-links {
+      gap: 24px;
+    }
+    .nav-links a {
+      font-size: 0.88rem;
+    }
+  }
+  @media (max-width: 960px) {
+    .nav-links,
+    .nav-cta {
+      display: none;
+    }
+    .nav-toggle {
+      display: flex;
+    }
+    .nav-mobile {
+      display: flex;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    const nav = document.getElementById("nav");
+    const toggle = document.getElementById("navToggle");
+    const mobile = document.getElementById("navMobile");
+
+    const onScroll = () => {
+      if (window.scrollY > 24) nav.classList.add("scrolled");
+      else nav.classList.remove("scrolled");
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    const setOpen = (open) => {
+      toggle.setAttribute("aria-expanded", String(open));
+      mobile.classList.toggle("open", open);
+      nav.classList.toggle("menu-open", open);
+    };
+    toggle.addEventListener("click", () =>
+      setOpen(toggle.getAttribute("aria-expanded") !== "true")
+    );
+    mobile.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => setOpen(false))
+    );
+    window
+      .matchMedia("(min-width: 961px)")
+      .addEventListener("change", (e) => e.matches && setOpen(false));
+  })();
+</script>

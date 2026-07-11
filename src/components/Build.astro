@@ -1,0 +1,176 @@
+---
+const cards = [
+  {
+    n: "01",
+    title: "Platforms & Custom Systems",
+    body: "Full-stack architecture for businesses that need more than a website — dashboards, integrations, AI-driven tools, built to scale.",
+    cta: { label: "See experience", href: "#experience" },
+    points: ["Multi-tenant systems", "AI integrations", "Built to scale"],
+    icon: `<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>`,
+  },
+  {
+    n: "02",
+    title: "Websites & Landing Pages",
+    body: "Clean, fast, professional sites — built properly, built to last.",
+    cta: { label: "See sample demos", href: "#demos" },
+    points: ["Pixel-precise design", "Performance-first", "SEO ready"],
+    icon: `<path d="M3 5h18v14H3z"/><path d="M3 9h18"/><path d="M7 7h.01"/>`,
+  },
+];
+---
+
+<section class="section" id="build">
+  <div class="container">
+    <span class="eyebrow" data-reveal>What I Build</span>
+    <h2 class="section-title" data-reveal>Two ways I can help you ship.</h2>
+
+    <div class="build-grid">
+      {
+        cards.map((c) => (
+          <article class="build-card glass" data-reveal>
+            <div class="build-top">
+              <span class="build-num">{c.n}</span>
+              <span class="build-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" set:html={c.icon} />
+              </span>
+            </div>
+            <h3 class="build-title">{c.title}</h3>
+            <p class="build-body">{c.body}</p>
+            <ul class="build-points">
+              {c.points.map((p) => (
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  {p}
+                </li>
+              ))}
+            </ul>
+            <a href={c.cta.href} class="build-link">
+              {c.cta.label}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .build-grid {
+    margin-top: 54px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .build-card {
+    padding: 38px 34px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s var(--ease), border-color 0.4s var(--ease),
+      box-shadow 0.4s var(--ease);
+  }
+  .build-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(60% 60% at 100% 0%, var(--neon-soft), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s var(--ease);
+    pointer-events: none;
+  }
+  @media (hover: hover) {
+    .build-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--neon-line);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+    }
+    .build-card:hover::before {
+      opacity: 1;
+    }
+  }
+  .build-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 26px;
+  }
+  .build-num {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+  }
+  .build-icon {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    color: var(--neon);
+    background: var(--neon-soft);
+    border: 1px solid var(--neon-line);
+  }
+  .build-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+  .build-title {
+    font-size: clamp(1.35rem, 2.6vw, 1.65rem);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+  .build-body {
+    margin-top: 14px;
+    color: var(--text-muted);
+    font-size: 1.02rem;
+  }
+  .build-points {
+    list-style: none;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .build-points li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: var(--text);
+  }
+  .build-points svg {
+    width: 17px;
+    height: 17px;
+    color: var(--neon);
+    flex-shrink: 0;
+  }
+  .build-link {
+    margin-top: 34px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--neon);
+    width: fit-content;
+  }
+  .build-link svg {
+    width: 17px;
+    height: 17px;
+    transition: transform 0.3s var(--ease);
+  }
+  .build-link:hover svg {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 780px) {
+    .build-grid {
+      grid-template-columns: 1fr;
+    }
+    .build-card {
+      padding: 30px 26px;
+    }
+  }
+</style>

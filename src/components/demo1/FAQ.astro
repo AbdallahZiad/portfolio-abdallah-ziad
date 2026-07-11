@@ -1,0 +1,196 @@
+---
+const faqs = [
+  {
+    q: "Is my data secure?",
+    a: "Absolutely. Nebula is SOC 2 Type II certified and undergoes annual penetration testing. All data is encrypted in transit (TLS 1.3) and at rest (AES-256). We never store raw event data on shared infrastructure — your data stays in your warehouse."
+  },
+  {
+    q: "Which warehouses do you support?",
+    a: "Nebula connects natively to PostgreSQL, Snowflake, BigQuery, Redshift, and ClickHouse. You can also use our lightweight SDK to stream events directly into Nebula's managed store, with no warehouse required."
+  },
+  {
+    q: "How long does setup take?",
+    a: "Most teams are querying their data within 10 minutes. Connect your warehouse, point Nebula at your events table, and start asking questions. No complex schema mapping, no week-long implementation projects."
+  },
+  {
+    q: "Can I cancel anytime?",
+    a: "Yes — no lock-in, ever. Cancel your subscription from the dashboard at any time. If you cancel mid-cycle, you keep access through the end of your billing period. All your data remains exportable for 30 days after cancellation."
+  },
+  {
+    q: "How accurate are the AI answers?",
+    a: "Nebula shows you the exact query it ran alongside every answer, so you can always verify the logic. The AI is grounded in your actual data — it doesn't hallucinate numbers. For complex analyses, you can review and edit the generated SQL before running it."
+  }
+];
+---
+<section class="faq-section" id="faq" aria-labelledby="faq-heading">
+  <div class="faq-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">FAQ</div>
+      <h2 id="faq-heading" class="section-title">Common questions.</h2>
+    </div>
+
+    <div class="faq-list reveal delay-1" role="list">
+      {faqs.map((faq, i) => (
+        <div class="faq-item" role="listitem">
+          <button
+            class="faq-trigger"
+            aria-expanded="false"
+            aria-controls={`faq-answer-${i}`}
+            id={`faq-btn-${i}`}
+          >
+            <span class="faq-q">{faq.q}</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M4 6.5L9 11.5L14 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </button>
+          <div
+            class="faq-answer"
+            id={`faq-answer-${i}`}
+            role="region"
+            aria-labelledby={`faq-btn-${i}`}
+            hidden
+          >
+            <div class="faq-answer-inner">{faq.a}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    padding: 6rem 1.5rem;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    position: relative;
+  }
+
+  .faq-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-eyebrow {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--cyan);
+    background: rgba(34, 211, 238, 0.08);
+    border: 1px solid rgba(34, 211, 238, 0.2);
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--surface);
+    transition: border-color 0.2s;
+  }
+
+  .faq-item:has(.faq-trigger[aria-expanded="true"]) {
+    border-color: rgba(139, 92, 246, 0.3);
+    background: rgba(139, 92, 246, 0.04);
+  }
+
+  .faq-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    background: none;
+    cursor: pointer;
+    color: var(--text);
+  }
+
+  .faq-q {
+    font-size: 0.975rem;
+    font-weight: 600;
+    line-height: 1.4;
+    flex: 1;
+  }
+
+  .faq-icon {
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: transform 0.3s, color 0.2s;
+  }
+
+  .faq-trigger[aria-expanded="true"] .faq-icon {
+    transform: rotate(180deg);
+    color: var(--violet-2);
+  }
+
+  .faq-answer {
+    overflow: hidden;
+  }
+
+  .faq-answer[hidden] {
+    display: none;
+  }
+
+  .faq-answer:not([hidden]) {
+    display: block;
+  }
+
+  .faq-answer-inner {
+    padding: 0 1.5rem 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    document.querySelectorAll('.faq-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        var answerId = btn.getAttribute('aria-controls');
+        var answer = document.getElementById(answerId);
+
+        // Close others
+        document.querySelectorAll('.faq-trigger').forEach(function (b) {
+          b.setAttribute('aria-expanded', 'false');
+        });
+        document.querySelectorAll('.faq-answer').forEach(function (a) {
+          a.setAttribute('hidden', '');
+        });
+
+        if (!expanded) {
+          btn.setAttribute('aria-expanded', 'true');
+          if (answer) answer.removeAttribute('hidden');
+        }
+      });
+    });
+  })();
+</script>

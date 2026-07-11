@@ -1,0 +1,194 @@
+---
+const steps = [
+  {
+    num: "01",
+    step: "Cleanse",
+    desc: "Begin with a gentle cleanse. Remove the day without stripping the barrier.",
+    product: "Dew Cleansing Balm",
+  },
+  {
+    num: "02",
+    step: "Treat",
+    desc: "Apply your serum to damp skin. A few drops are all you need.",
+    product: "Midnight Renewal Serum",
+  },
+  {
+    num: "03",
+    step: "Hydrate",
+    desc: "Layer on a light essence, then seal with oil or moisturiser.",
+    product: "Dewpoint Hydrating Essence",
+  },
+  {
+    num: "04",
+    step: "Protect",
+    desc: "In the morning, always finish with SPF. Rain or shine, without exception.",
+    product: "Sunlace Mineral SPF 45",
+  },
+];
+---
+
+<section class="ritual" id="ritual" aria-labelledby="ritual-heading">
+  <div class="ritual-inner">
+    <div class="ritual-header">
+      <span class="section-eyebrow reveal">The Method</span>
+      <h2 class="ritual-heading reveal delay-1" id="ritual-heading">
+        Four steps.<br/><em>A lifetime of skin.</em>
+      </h2>
+    </div>
+
+    <ol class="ritual-steps" role="list">
+      {steps.map((s, i) => (
+        <li class={`ritual-step reveal delay-${i + 1}`}>
+          <div class="step-num-wrap" aria-hidden="true">
+            <span class="step-num">{s.num}</span>
+            {i < steps.length - 1 && <div class="step-connector"></div>}
+          </div>
+          <div class="step-content">
+            <div class="step-header">
+              <h3 class="step-name">{s.step}</h3>
+              <span class="step-product">{s.product}</span>
+            </div>
+            <p class="step-desc">{s.desc}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .ritual {
+    padding: 100px 24px;
+    background: var(--bg-2);
+    border-top: 1px solid var(--line);
+  }
+
+  .ritual-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  @media (min-width: 900px) {
+    .ritual-inner {
+      grid-template-columns: 340px 1fr;
+      gap: 100px;
+    }
+  }
+
+  .section-eyebrow {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .ritual-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3vw, 2.6rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+
+  .ritual-heading em {
+    font-style: italic;
+    color: var(--green);
+  }
+
+  /* Steps */
+  .ritual-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .ritual-step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 28px;
+    position: relative;
+  }
+
+  .step-num-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .step-num {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .step-connector {
+    width: 1px;
+    flex: 1;
+    min-height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    opacity: 0.35;
+    margin: 8px 0;
+  }
+
+  .step-content {
+    padding-bottom: 40px;
+  }
+
+  .ritual-step:last-child .step-content {
+    padding-bottom: 0;
+  }
+
+  .step-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .step-name {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .step-product {
+    font-size: 0.73rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(176,137,74,0.30);
+    border-radius: var(--radius-pill);
+    padding: 3px 10px;
+  }
+
+  .step-desc {
+    font-size: 0.97rem;
+    line-height: 1.75;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 520px;
+  }
+</style>

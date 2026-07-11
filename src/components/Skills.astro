@@ -1,0 +1,135 @@
+---
+const groups = [
+  {
+    label: "Frontend",
+    icon: `<path d="M4 4h16v16H4z"/><path d="M4 9h16"/>`,
+    items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML5"],
+  },
+  {
+    label: "Backend",
+    icon: `<path d="M6 3h12l3 6-9 12L3 9z"/>`,
+    items: ["Python (FastAPI, Django)", "Node.js (Express)", "C#", "Java", "REST API design"],
+  },
+  {
+    label: "Data & Databases",
+    icon: `<ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>`,
+    items: ["PostgreSQL", "MongoDB", "Redis", "DB design & migration", "SQL optimization", "Data pipelines"],
+  },
+  {
+    label: "AI & ML",
+    icon: `<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>`,
+    items: ["LLM integration & fine-tuning", "Llama 3 / Mistral", "RAG & vector search", "Pinecone / Weaviate", "OpenAI API", "LangChain multi-agent", "NLP", "Generative AI"],
+  },
+  {
+    label: "Infrastructure & DevOps",
+    icon: `<path d="M3 15a4 4 0 0 1 4-4 5 5 0 0 1 9.7-1.5A3.5 3.5 0 0 1 20 15z"/><path d="M8 19h8"/>`,
+    items: ["Docker & Compose", "Celery + Redis", "AWS", "CI/CD", "SSL & production deploy", "Load / stress testing"],
+  },
+  {
+    label: "Integrations",
+    icon: `<path d="M9 12h6M7 8a4 4 0 0 0 0 8h2M17 16a4 4 0 0 0 0-8h-2"/>`,
+    items: ["Google Ads API", "Google Merchant Center", "OAuth", "Slack", "3rd-party orchestration"],
+  },
+];
+---
+
+<section class="section" id="skills">
+  <div class="container">
+    <span class="eyebrow" data-reveal>Skills &amp; Technologies</span>
+    <h2 class="section-title" data-reveal>The full stack, top to bottom.</h2>
+
+    <div class="skills-grid">
+      {
+        groups.map((g, i) => (
+          <article class="skill-card glass" data-reveal style={`transition-delay:${(i % 3) * 70}ms`}>
+            <div class="skill-head">
+              <span class="skill-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" set:html={g.icon} />
+              </span>
+              <h3>{g.label}</h3>
+            </div>
+            <div class="skill-tags">
+              {g.items.map((it) => <span>{it}</span>)}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-grid {
+    margin-top: 54px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .skill-card {
+    padding: 30px 28px;
+    transition: transform 0.4s var(--ease), border-color 0.4s var(--ease),
+      opacity 0.7s var(--ease);
+  }
+  @media (hover: hover) {
+    .skill-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--neon-line);
+    }
+    .skill-tags span:hover {
+      color: var(--text);
+      border-color: var(--neon-line);
+      background: var(--neon-soft);
+    }
+  }
+  .skill-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .skill-icon {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    color: var(--neon);
+    background: var(--neon-soft);
+    border: 1px solid var(--neon-line);
+    flex-shrink: 0;
+  }
+  .skill-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+  .skill-head h3 {
+    font-size: 1.12rem;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+  .skill-tags span {
+    padding: 7px 13px;
+    border-radius: 8px;
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    transition: color 0.25s var(--ease), border-color 0.25s var(--ease),
+      background 0.25s var(--ease);
+  }
+  @media (max-width: 900px) {
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

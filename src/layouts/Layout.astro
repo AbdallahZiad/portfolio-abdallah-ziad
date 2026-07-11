@@ -1,0 +1,87 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Abdallah Ziad — Software Engineer",
+  description = "Software engineer building end to end — from infrastructure to interface. Full-stack platforms, AI pipelines, and advertising & analytics engineering.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#05070d" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+
+    <script is:inline>
+      (function () {
+        // Scroll-reveal — stagger delays are cleared after the entrance
+        // finishes so they never slow down hover transitions.
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (!e.isIntersecting) continue;
+              const el = e.target;
+              el.classList.add("is-visible");
+              el.addEventListener(
+                "transitionend",
+                () => {
+                  el.style.transitionDelay = "0s";
+                },
+                { once: true }
+              );
+              io.unobserve(el);
+            }
+          },
+          { threshold: 0.14, rootMargin: "0px 0px -8% 0px" }
+        );
+
+        const init = () => {
+          document.querySelectorAll("[data-reveal]").forEach((el) => io.observe(el));
+
+          // Cursor-tracked sheen on glass cards (desktop pointers only)
+          if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+            document.querySelectorAll(".glass").forEach((card) => {
+              card.addEventListener(
+                "pointermove",
+                (ev) => {
+                  const r = card.getBoundingClientRect();
+                  card.style.setProperty("--mx", ev.clientX - r.left + "px");
+                  card.style.setProperty("--my", ev.clientY - r.top + "px");
+                },
+                { passive: true }
+              );
+            });
+          }
+        };
+
+        if (document.readyState !== "loading") init();
+        else document.addEventListener("DOMContentLoaded", init);
+      })();
+    </script>
+  </body>
+</html>

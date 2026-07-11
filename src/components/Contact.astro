@@ -1,0 +1,245 @@
+---
+const email = "boodyziad1@gmail.com";
+const year = new Date().getFullYear();
+---
+
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="contact-card glass" data-reveal>
+      <div class="contact-glow"></div>
+
+      <h2 class="contact-title" data-reveal>
+        Interested in <span class="text-grad">working together?</span>
+      </h2>
+      <p class="contact-lead" data-reveal>
+        Whether you have a defined project or just an idea worth exploring, I'd be
+        glad to hear about it. Let's talk about what you're building.
+      </p>
+
+      <div class="contact-actions" data-reveal>
+        <a href={`mailto:${email}`} class="btn btn-primary contact-mail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          {email}
+        </a>
+        <button class="btn btn-ghost" id="copyBtn" data-email={email}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span id="copyLabel">Copy email</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark">AZ</span>
+        <div>
+          <div class="footer-name">Abdallah Ziad</div>
+          <div class="footer-meta">
+            <span class="footer-role">Software Engineer</span>
+            <span class="footer-sep" aria-hidden="true"></span>
+            <span class="footer-edu">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg>
+              Engineering student, Alexandria University
+            </span>
+          </div>
+        </div>
+      </div>
+      <p class="footer-copy">© {year} Abdallah Ziad — Built end to end.</p>
+      <a href="#top" class="footer-top">
+        Back to top
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+      </a>
+    </div>
+  </footer>
+</section>
+
+<style>
+  .contact {
+    padding-bottom: 0;
+  }
+  .contact-card {
+    position: relative;
+    padding: clamp(40px, 7vw, 80px);
+    text-align: center;
+    overflow: hidden;
+    border-color: var(--border-strong);
+  }
+  .contact-glow {
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 400px;
+    max-width: 120%;
+    background: radial-gradient(circle, rgba(25, 200, 255, 0.16), transparent 65%);
+    pointer-events: none;
+  }
+  .contact-title {
+    position: relative;
+    font-size: clamp(2rem, 5.5vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+  .contact-lead {
+    position: relative;
+    margin: 20px auto 0;
+    max-width: 46ch;
+    color: var(--text-muted);
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+  }
+  .contact-actions {
+    position: relative;
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+  }
+  .contact-mail {
+    font-family: var(--font-mono);
+    letter-spacing: 0;
+  }
+  .contact-mail svg,
+  #copyBtn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .footer {
+    margin-top: clamp(72px, 12vh, 130px);
+    border-top: 1px solid var(--border);
+    padding-block: 40px;
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .footer-brand .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #04121f;
+    background: var(--grad);
+  }
+  .footer-name {
+    font-weight: 600;
+    font-size: 0.98rem;
+    margin-bottom: 3px;
+  }
+  .footer-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+  }
+  .footer-role {
+    font-family: var(--font-mono);
+  }
+  .footer-sep {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--border-strong);
+  }
+  .footer-edu {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--text-muted);
+  }
+  .footer-edu svg {
+    width: 15px;
+    height: 15px;
+    color: var(--neon);
+    flex-shrink: 0;
+  }
+  .footer-copy {
+    color: var(--text-dim);
+    font-size: 0.88rem;
+  }
+  .footer-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    transition: color 0.25s var(--ease);
+  }
+  .footer-top svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s var(--ease);
+  }
+  .footer-top:hover {
+    color: var(--neon);
+  }
+  .footer-top:hover svg {
+    transform: translateY(-3px);
+  }
+
+  @media (max-width: 620px) {
+    .contact-mail {
+      font-size: 0.84rem;
+    }
+    .footer-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+    .footer-brand {
+      flex-direction: column;
+      text-align: center;
+    }
+    .footer-meta {
+      justify-content: center;
+    }
+  }
+  @media (max-width: 520px) {
+    .contact-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .contact-actions .btn {
+      justify-content: center;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    const btn = document.getElementById("copyBtn");
+    if (!btn) return;
+    const label = document.getElementById("copyLabel");
+    btn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.email);
+        const prev = label.textContent;
+        label.textContent = "Copied!";
+        btn.style.borderColor = "var(--neon-line)";
+        setTimeout(() => {
+          label.textContent = prev;
+          btn.style.borderColor = "";
+        }, 1600);
+      } catch (e) {
+        window.location.href = "mailto:" + btn.dataset.email;
+      }
+    });
+  })();
+</script>

@@ -1,0 +1,277 @@
+---
+---
+<section class="hiw-section" id="how-it-works" aria-labelledby="hiw-heading">
+  <div class="hiw-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">How it works</div>
+      <h2 id="hiw-heading" class="section-title">Up and running in minutes.</h2>
+    </div>
+
+    <div class="steps" role="list">
+      <div class="step reveal delay-1" role="listitem">
+        <div class="step-number" aria-hidden="true">01</div>
+        <div class="step-connector" aria-hidden="true"></div>
+        <div class="step-card">
+          <div class="step-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M12 5v14" stroke="url(#h1g)" stroke-width="1.8" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="10" stroke="url(#h1g)" stroke-width="1.2"/>
+              <defs>
+                <linearGradient id="h1g" x1="2" y1="2" x2="22" y2="22">
+                  <stop stop-color="#6366f1"/><stop offset="1" stop-color="#22d3ee"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h3 class="step-title">Connect</h3>
+          <p class="step-body">Point Nebula at your warehouse or drop in our SDK. Postgres, Snowflake, BigQuery — live in minutes, not weeks.</p>
+          <div class="step-tags" aria-hidden="true">
+            <span class="tag">Postgres</span>
+            <span class="tag">Snowflake</span>
+            <span class="tag">BigQuery</span>
+            <span class="tag">SDK</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step reveal delay-2" role="listitem">
+        <div class="step-number" aria-hidden="true">02</div>
+        <div class="step-connector" aria-hidden="true"></div>
+        <div class="step-card step-card-featured">
+          <div class="step-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7l2-7z" stroke="url(#h2g)" stroke-width="1.5" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="h2g" x1="2" y1="2" x2="22" y2="22">
+                  <stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#ec4899"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h3 class="step-title">Ask</h3>
+          <p class="step-body">Query in natural language or build dashboards visually. Nebula translates your question into precise analytics instantly.</p>
+          <div class="mini-prompt" aria-hidden="true">
+            <span class="prompt-cursor">_</span> What caused the drop in activation?
+          </div>
+        </div>
+      </div>
+
+      <div class="step reveal delay-3" role="listitem">
+        <div class="step-number" aria-hidden="true">03</div>
+        <div class="step-card">
+          <div class="step-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l5 5L20 6" stroke="url(#h3g)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="10" stroke="url(#h3g)" stroke-width="1.2" opacity="0.5"/>
+              <defs>
+                <linearGradient id="h3g" x1="2" y1="2" x2="22" y2="22">
+                  <stop stop-color="#22d3ee"/><stop offset="1" stop-color="#8b5cf6"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h3 class="step-title">Act</h3>
+          <p class="step-body">Share insights, set alerts, and ship with confidence. Turn findings into action without leaving Nebula.</p>
+          <div class="step-tags" aria-hidden="true">
+            <span class="tag tag-green">Share</span>
+            <span class="tag tag-green">Alert</span>
+            <span class="tag tag-green">Automate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hiw-section {
+    padding: 6rem 1.5rem;
+    position: relative;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 50%, var(--bg) 100%);
+    overflow: hidden;
+  }
+
+  .hiw-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-2), transparent);
+  }
+
+  .hiw-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-eyebrow {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--cyan);
+    background: rgba(34, 211, 238, 0.08);
+    border: 1px solid rgba(34, 211, 238, 0.2);
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .steps {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      align-items: start;
+    }
+  }
+
+  .step {
+    position: relative;
+  }
+
+  .step-number {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--muted-2);
+    letter-spacing: 0.12em;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+  }
+
+  .step-connector {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .step-connector {
+      display: block;
+      position: absolute;
+      top: 0.85rem;
+      right: -1.25rem;
+      width: 2.5rem;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border-2), transparent);
+      z-index: 1;
+    }
+
+    .step:last-child .step-connector {
+      display: none;
+    }
+  }
+
+  .step-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    height: 100%;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .step-card-featured {
+    background: rgba(139, 92, 246, 0.06);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.08);
+  }
+
+  @media (hover: hover) {
+    .step-card:hover {
+      border-color: var(--border-2);
+      box-shadow: var(--shadow-card);
+    }
+  }
+
+  .step-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: var(--radius-sm);
+    margin-bottom: 1.25rem;
+  }
+
+  .step-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+  }
+
+  .step-body {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+  }
+
+  .step-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--muted-2);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .tag-green {
+    color: #34d399;
+    background: rgba(52, 211, 153, 0.06);
+    border-color: rgba(52, 211, 153, 0.2);
+  }
+
+  .mini-prompt {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text);
+    background: rgba(139, 92, 246, 0.07);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: var(--radius-sm);
+    padding: 0.6rem 0.85rem;
+  }
+
+  .prompt-cursor {
+    color: var(--violet-2);
+    animation: blink 1.2s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .prompt-cursor { animation: none; }
+  }
+</style>

@@ -1,0 +1,37 @@
+---
+import Demo1Layout from '../../layouts/Demo1Layout.astro';
+import Nav from '../../components/demo1/Nav.astro';
+import Hero from '../../components/demo1/Hero.astro';
+import Logos from '../../components/demo1/Logos.astro';
+import Features from '../../components/demo1/Features.astro';
+import HowItWorks from '../../components/demo1/HowItWorks.astro';
+import ProductDeepDive from '../../components/demo1/ProductDeepDive.astro';
+import Metrics from '../../components/demo1/Metrics.astro';
+import Testimonials from '../../components/demo1/Testimonials.astro';
+import Pricing from '../../components/demo1/Pricing.astro';
+import FAQ from '../../components/demo1/FAQ.astro';
+import CTABand from '../../components/demo1/CTABand.astro';
+import Footer from '../../components/demo1/Footer.astro';
+import ScrollReveal from '../../components/demo1/ScrollReveal.astro';
+---
+
+<Demo1Layout
+  title="Nebula — AI Product Analytics"
+  description="Nebula unifies your events, funnels, and revenue into one AI workspace — ask a question in plain English, get an answer backed by your data."
+>
+  <Nav />
+  <main id="main-content">
+    <Hero />
+    <Logos />
+    <Features />
+    <HowItWorks />
+    <ProductDeepDive />
+    <Metrics />
+    <Testimonials />
+    <Pricing />
+    <FAQ />
+    <CTABand />
+  </main>
+  <Footer />
+  <ScrollReveal />
+</Demo1Layout>

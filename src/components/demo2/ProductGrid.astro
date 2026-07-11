@@ -1,0 +1,501 @@
+---
+const products = [
+  {
+    id: "midnight-serum",
+    name: "Midnight Renewal Serum",
+    desc: "Overnight retinal serum",
+    price: "$86",
+    bottleType: "serum",
+    tint: { body: "#c9a870", dark: "#8a6535", liquid: "#c4924a" },
+  },
+  {
+    id: "dewpoint-essence",
+    name: "Dewpoint Hydrating Essence",
+    desc: "Hyaluronic + polyglutamic acid",
+    price: "$52",
+    bottleType: "essence",
+    tint: { body: "#8fb5c0", dark: "#456470", liquid: "#9ecbda" },
+  },
+  {
+    id: "sunlace-spf",
+    name: "Sunlace Mineral SPF 45",
+    desc: "Weightless zinc daily shield",
+    price: "$44",
+    bottleType: "tube",
+    tint: { body: "#e0c890", dark: "#a08a40", liquid: "#e8d87e" },
+  },
+  {
+    id: "rosewater-toner",
+    name: "Rosewater Calm Toner",
+    desc: "Alcohol-free pH mist",
+    price: "$38",
+    bottleType: "mist",
+    tint: { body: "#d4a0a8", dark: "#8a5058", liquid: "#e8b4b8" },
+  },
+  {
+    id: "golden-hour-oil",
+    name: "Golden Hour Facial Oil",
+    desc: "Rosehip + sea buckthorn",
+    price: "$68",
+    bottleType: "dropper",
+    tint: { body: "#e0a040", dark: "#8a5a10", liquid: "#f0b848" },
+  },
+  {
+    id: "silt-mask",
+    name: "Silt Renewing Clay Mask",
+    desc: "French clay + willow bark",
+    price: "$46",
+    bottleType: "jar",
+    tint: { body: "#a89080", dark: "#5a4035", liquid: "#c4a88c" },
+  },
+];
+---
+<section class="shop-grid" id="shop" aria-labelledby="shop-heading">
+  <div class="shop-inner">
+    <div class="shop-header">
+      <span class="section-eyebrow reveal">The Collection</span>
+      <h2 class="section-title reveal delay-1" id="shop-heading">Formulas worth<br/><em>the ritual.</em></h2>
+    </div>
+
+    <div class="products-grid">
+      {products.map((product, i) => (
+        <article class={`product-card reveal delay-${Math.min(i + 1, 6)}`} data-product={product.id} aria-label={product.name}>
+          <div class="card-visual" aria-hidden="true">
+            {product.bottleType === "serum" && (
+              <svg class="card-bottle" viewBox="0 0 110 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id={`grad-s-${product.id}`} x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color={product.tint.dark} stop-opacity="0.35"/>
+                    <stop offset="40%" stop-color={product.tint.body} stop-opacity="0.60"/>
+                    <stop offset="100%" stop-color={product.tint.dark} stop-opacity="0.30"/>
+                  </linearGradient>
+                  <linearGradient id={`liq-s-${product.id}`} x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color={product.tint.liquid} stop-opacity="0.60"/>
+                    <stop offset="100%" stop-color={product.tint.dark} stop-opacity="0.75"/>
+                  </linearGradient>
+                  <clipPath id={`clip-s-${product.id}`}>
+                    <path d="M32 68 C28 70, 22 76, 22 84 L22 192 C22 200, 26 204, 55 204 C84 204, 88 200, 88 192 L88 84 C88 76, 82 70, 78 68 Z"/>
+                  </clipPath>
+                </defs>
+                <ellipse cx="55" cy="208" rx="26" ry="5" fill={`${product.tint.dark}44`}/>
+                <path d="M32 68 C28 70, 22 76, 22 84 L22 192 C22 200, 26 204, 55 204 C84 204, 88 200, 88 192 L88 84 C88 76, 82 70, 78 68 Z" fill={`url(#grad-s-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
+                <rect x="23" y="112" width="65" height="91" fill={`url(#liq-s-${product.id})`} clip-path={`url(#clip-s-${product.id})`} opacity="0.55"/>
+                <path d="M35 72 C32 78, 29 88, 29 105 L29 195" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.32"/>
+                <rect x="30" y="84" width="50" height="64" rx="2" fill="rgba(247,243,236,0.78)" stroke="rgba(176,137,74,0.20)" stroke-width="0.7"/>
+                <text x="55" y="103" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-style="italic" fill="#38452f">Aurelia</text>
+                <line x1="37" y1="107" x2="73" y2="107" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
+                <text x="55" y="118" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.5">MIDNIGHT</text>
+                <text x="55" y="127" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.5">RENEWAL</text>
+                <text x="55" y="140" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459">30 ml</text>
+                <path d="M32 68 C28 58, 36 48, 43 38 L43 26 L67 26 L67 38 C74 48, 82 58, 78 68 Z" fill={`url(#grad-s-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
+                <rect x="41" y="10" width="28" height="20" rx="3" fill={product.tint.dark}/>
+                <ellipse cx="55" cy="8" rx="8" ry="5" fill={product.tint.dark}/>
+                <rect x="39" y="24" width="32" height="4" rx="1" fill="#c9963e"/>
+              </svg>
+            )}
+
+            {product.bottleType === "essence" && (
+              <svg class="card-bottle" viewBox="0 0 110 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id={`grad-e-${product.id}`} x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color={product.tint.dark} stop-opacity="0.30"/>
+                    <stop offset="40%" stop-color={product.tint.body} stop-opacity="0.55"/>
+                    <stop offset="100%" stop-color={product.tint.dark} stop-opacity="0.28"/>
+                  </linearGradient>
+                  <linearGradient id={`liq-e-${product.id}`} x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color={product.tint.liquid} stop-opacity="0.50"/>
+                    <stop offset="100%" stop-color={product.tint.dark} stop-opacity="0.65"/>
+                  </linearGradient>
+                  <clipPath id={`clip-e-${product.id}`}>
+                    <path d="M20 70 C16 73, 14 80, 14 90 L14 195 C14 202, 20 206, 55 206 C90 206, 96 202, 96 195 L96 90 C96 80, 94 73, 90 70 Z"/>
+                  </clipPath>
+                </defs>
+                <ellipse cx="55" cy="210" rx="32" ry="5.5" fill={`${product.tint.dark}33`}/>
+                <path d="M20 70 C16 73, 14 80, 14 90 L14 195 C14 202, 20 206, 55 206 C90 206, 96 202, 96 195 L96 90 C96 80, 94 73, 90 70 Z" fill={`url(#grad-e-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
+                <rect x="15" y="120" width="80" height="86" fill={`url(#liq-e-${product.id})`} clip-path={`url(#clip-e-${product.id})`} opacity="0.50"/>
+                <path d="M24 75 C21 82, 19 95, 19 115 L19 197" stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.28"/>
+                <rect x="22" y="85" width="66" height="78" rx="2" fill="rgba(247,243,236,0.80)" stroke="rgba(176,137,74,0.18)" stroke-width="0.7"/>
+                <text x="55" y="106" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-style="italic" fill="#38452f">Aurelia</text>
+                <line x1="30" y1="111" x2="80" y2="111" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
+                <text x="55" y="123" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.2">DEWPOINT</text>
+                <text x="55" y="133" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459" letter-spacing="0.8">HYDRATING ESSENCE</text>
+                <text x="55" y="150" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459">50 ml</text>
+                <path d="M28 70 C24 58, 30 48, 40 36 L40 24 L70 24 L70 36 C80 48, 86 58, 82 70 Z" fill={`url(#grad-e-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
+                <rect x="43" y="10" width="24" height="17" rx="3" fill={product.tint.dark}/>
+                <rect x="41" y="22" width="28" height="4" rx="1" fill="#c9963e"/>
+              </svg>
+            )}
+
+            {product.bottleType === "tube" && (
+              <svg class="card-bottle" viewBox="0 0 110 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id={`grad-t-${product.id}`} x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color={product.tint.dark} stop-opacity="0.35"/>
+                    <stop offset="40%" stop-color={product.tint.body} stop-opacity="0.70"/>
+                    <stop offset="100%" stop-color={product.tint.dark} stop-opacity="0.30"/>
+                  </linearGradient>
+                </defs>
+                <ellipse cx="55" cy="210" rx="22" ry="4.5" fill={`${product.tint.dark}33`}/>
+                <!-- Tube body -->
+                <rect x="26" y="60" width="58" height="150" rx="8" fill={`url(#grad-t-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
+                <!-- Highlight -->
+                <rect x="29" y="65" width="7" height="140" rx="3.5" fill="white" opacity="0.25"/>
+                <!-- Label -->
+                <rect x="30" y="80" width="50" height="80" rx="2" fill="rgba(247,243,236,0.82)" stroke="rgba(176,137,74,0.18)" stroke-width="0.7"/>
+                <text x="55" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-style="italic" fill="#38452f">Aurelia</text>
+                <line x1="36" y1="105" x2="74" y2="105" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
+                <text x="55" y="117" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.2">SUNLACE</text>
+                <text x="55" y="126" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#221f1a" letter-spacing="0.8">MINERAL SPF 45</text>
+                <text x="55" y="148" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459">40 g</text>
+                <!-- Tube neck + cap -->
+                <rect x="40" y="32" width="30" height="30" rx="4" fill={product.tint.dark}/>
+                <rect x="43" y="34" width="6" height="26" rx="3" fill="white" opacity="0.18"/>
+                <rect x="38" y="26" width="34" height="8" rx="3" fill={product.tint.dark}/>
+                <rect x="26" y="56" width="58" height="6" rx="2" fill="#c9963e"/>
+              </svg>
+            )}
+
+            {product.bottleType === "mist" && (
+              <svg class="card-bottle" viewBox="0 0 110 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id={`grad-m-${product.id}`} x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color={product.tint.dark} stop-opacity="0.30"/>
+                    <stop offset="40%" stop-color={product.tint.body} stop-opacity="0.50"/>
+                    <stop offset="100%" stop-color={product.tint.dark} stop-opacity="0.25"/>
+                  </linearGradient>
+                  <linearGradient id={`liq-m-${product.id}`} x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color={product.tint.liquid} stop-opacity="0.45"/>
+                    <stop offset="100%" stop-color={product.tint.dark} stop-opacity="0.60"/>
+                  </linearGradient>
+                  <clipPath id={`clip-m-${product.id}`}>
+                    <path d="M20 72 C17 75, 15 82, 15 91 L15 192 C15 200, 21 204, 55 204 C89 204, 95 200, 95 192 L95 91 C95 82, 93 75, 90 72 Z"/>
+                  </clipPath>
+                </defs>
+                <ellipse cx="55" cy="208" rx="30" ry="5" fill={`${product.tint.dark}33`}/>
+                <path d="M20 72 C17 75, 15 82, 15 91 L15 192 C15 200, 21 204, 55 204 C89 204, 95 200, 95 192 L95 91 C95 82, 93 75, 90 72 Z" fill={`url(#grad-m-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
+                <rect x="16" y="128" width="79" height="76" fill={`url(#liq-m-${product.id})`} clip-path={`url(#clip-m-${product.id})`} opacity="0.55"/>
+                <path d="M24 77 C21 84, 19 96, 19 116 L19 195" stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.28"/>
+                <!-- Mist dots -->
+                <circle cx="74" cy="100" r="2" fill={product.tint.liquid} fill-opacity="0.35"/>
+                <circle cx="82" cy="94" r="1.5" fill={product.tint.liquid} fill-opacity="0.28"/>
+                <circle cx="80" cy="106" r="1.2" fill={product.tint.liquid} fill-opacity="0.22"/>
+                <!-- Label -->
+                <rect x="22" y="85" width="66" height="78" rx="2" fill="rgba(247,243,236,0.80)" stroke="rgba(176,137,74,0.18)" stroke-width="0.7"/>
+                <text x="55" y="106" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-style="italic" fill="#38452f">Aurelia</text>
+                <line x1="30" y1="111" x2="80" y2="111" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
+                <text x="55" y="123" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.2">ROSEWATER</text>
+                <text x="55" y="132" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#221f1a" letter-spacing="0.8">CALM TONER</text>
+                <text x="55" y="150" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459">100 ml</text>
+                <!-- Pump head -->
+                <rect x="42" y="36" width="26" height="40" rx="4" fill={product.tint.dark}/>
+                <rect x="44" y="38" width="5" height="36" rx="2.5" fill="white" opacity="0.16"/>
+                <!-- Pump nozzle -->
+                <path d="M68 50 L82 50 L82 46 L68 46 Z" fill={product.tint.dark} rx="1"/>
+                <rect x="80" y="44" width="6" height="8" rx="1" fill={product.tint.dark}/>
+                <rect x="20" y="70" width="70" height="5" rx="1.5" fill="#c9963e"/>
+              </svg>
+            )}
+
+            {product.bottleType === "dropper" && (
+              <svg class="card-bottle" viewBox="0 0 110 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id={`grad-d-${product.id}`} x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color={product.tint.dark} stop-opacity="0.28"/>
+                    <stop offset="35%" stop-color={product.tint.body} stop-opacity="0.52"/>
+                    <stop offset="100%" stop-color={product.tint.dark} stop-opacity="0.25"/>
+                  </linearGradient>
+                  <linearGradient id={`liq-d-${product.id}`} x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color={product.tint.liquid} stop-opacity="0.70"/>
+                    <stop offset="100%" stop-color={product.tint.dark} stop-opacity="0.85"/>
+                  </linearGradient>
+                  <clipPath id={`clip-d-${product.id}`}>
+                    <path d="M30 65 C26 68, 22 76, 22 86 L22 192 C22 200, 26 204, 55 204 C84 204, 88 200, 88 192 L88 86 C88 76, 84 68, 80 65 Z"/>
+                  </clipPath>
+                </defs>
+                <ellipse cx="55" cy="208" rx="26" ry="5" fill={`${product.tint.dark}40`}/>
+                <path d="M30 65 C26 68, 22 76, 22 86 L22 192 C22 200, 26 204, 55 204 C84 204, 88 200, 88 192 L88 86 C88 76, 84 68, 80 65 Z" fill={`url(#grad-d-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
+                <rect x="23" y="110" width="65" height="93" fill={`url(#liq-d-${product.id})`} clip-path={`url(#clip-d-${product.id})`} opacity="0.65"/>
+                <path d="M34 70 C31 78, 29 92, 29 110 L29 194" stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.32"/>
+                <rect x="29" y="80" width="52" height="68" rx="2" fill="rgba(247,243,236,0.78)" stroke="rgba(176,137,74,0.20)" stroke-width="0.7"/>
+                <text x="55" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-style="italic" fill="#38452f">Aurelia</text>
+                <line x1="35" y1="105" x2="75" y2="105" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
+                <text x="55" y="117" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#221f1a" letter-spacing="1.2">GOLDEN HOUR</text>
+                <text x="55" y="126" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#221f1a" letter-spacing="0.8">FACIAL OIL</text>
+                <text x="55" y="142" text-anchor="middle" font-family="Georgia,serif" font-size="4.5" fill="#6b6459">30 ml</text>
+                <path d="M36 65 C32 52, 40 40, 47 30 L47 20 L63 20 L63 30 C70 40, 78 52, 74 65 Z" fill={`url(#grad-d-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
+                <rect x="43" y="6" width="24" height="16" rx="3" fill={product.tint.dark}/>
+                <ellipse cx="55" cy="5" rx="7" ry="4.5" fill={product.tint.dark}/>
+                <ellipse cx="52" cy="3.5" rx="2.5" ry="1.8" fill="white" opacity="0.28"/>
+                <rect x="41" y="18" width="28" height="4" rx="1" fill="#c9963e"/>
+              </svg>
+            )}
+
+            {product.bottleType === "jar" && (
+              <svg class="card-bottle" viewBox="0 0 140 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id={`grad-j-${product.id}`} x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color={product.tint.dark} stop-opacity="0.32"/>
+                    <stop offset="40%" stop-color={product.tint.body} stop-opacity="0.55"/>
+                    <stop offset="100%" stop-color={product.tint.dark} stop-opacity="0.28"/>
+                  </linearGradient>
+                  <linearGradient id={`liq-j-${product.id}`} x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color={product.tint.liquid} stop-opacity="0.50"/>
+                    <stop offset="100%" stop-color={product.tint.dark} stop-opacity="0.65"/>
+                  </linearGradient>
+                  <linearGradient id={`lid-j-${product.id}`} x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color={product.tint.body} stop-opacity="0.80"/>
+                    <stop offset="100%" stop-color={product.tint.dark} stop-opacity="0.60"/>
+                  </linearGradient>
+                  <clipPath id={`clip-j-${product.id}`}>
+                    <path d="M16 82 L16 158 C16 166, 22 170, 70 170 C118 170, 124 166, 124 158 L124 82 Z"/>
+                  </clipPath>
+                </defs>
+                <ellipse cx="70" cy="173" rx="42" ry="7" fill={`${product.tint.dark}33`}/>
+                <!-- Jar body -->
+                <path d="M16 82 L16 158 C16 166, 22 170, 70 170 C118 170, 124 166, 124 158 L124 82 Z" fill={`url(#grad-j-${product.id})`} stroke={product.tint.body} stroke-width="1.2"/>
+                <!-- Clay contents visible from top side -->
+                <rect x="17" y="130" width="107" height="40" fill={`url(#liq-j-${product.id})`} clip-path={`url(#clip-j-${product.id})`} opacity="0.50"/>
+                <!-- Glass highlight on body -->
+                <path d="M20 85 L20 162" stroke="white" stroke-width="6" stroke-linecap="round" opacity="0.28"/>
+                <!-- Label on body -->
+                <rect x="26" y="90" width="88" height="60" rx="2" fill="rgba(247,243,236,0.82)" stroke="rgba(176,137,74,0.18)" stroke-width="0.7"/>
+                <text x="70" y="110" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-style="italic" fill="#38452f">Aurelia</text>
+                <line x1="35" y1="115" x2="105" y2="115" stroke="#b0894a" stroke-width="0.5" opacity="0.5"/>
+                <text x="70" y="127" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#221f1a" letter-spacing="1.5">SILT RENEWING</text>
+                <text x="70" y="137" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#221f1a" letter-spacing="1.5">CLAY MASK</text>
+                <text x="70" y="148" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#6b6459">60 ml</text>
+                <!-- Lid -->
+                <path d="M10 75 L10 84 C10 88, 20 92, 70 92 C120 92, 130 88, 130 84 L130 75 C130 71, 120 68, 70 68 C20 68, 10 71, 10 75 Z" fill={`url(#lid-j-${product.id})`} stroke={product.tint.body} stroke-width="1.2"/>
+                <ellipse cx="70" cy="68" rx="60" ry="9" fill={`url(#lid-j-${product.id})`} stroke={product.tint.body} stroke-width="1"/>
+                <!-- Lid highlight -->
+                <path d="M16 73 Q70 66, 124 73" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.30"/>
+                <!-- Gold band -->
+                <path d="M10 80 Q70 77, 130 80" stroke="#c9963e" stroke-width="2" stroke-linecap="round" opacity="0.70"/>
+              </svg>
+            )}
+          </div>
+
+          <div class="card-info">
+            <h3 class="card-name">{product.name}</h3>
+            <p class="card-desc">{product.desc}</p>
+            <div class="card-footer">
+              <span class="card-price">{product.price}</span>
+              <button
+                class="card-add-btn"
+                data-product={product.name}
+                aria-label={`Add ${product.name} to bag`}
+              >
+                <span class="card-btn-label">Add</span>
+                <span class="card-btn-confirm" aria-hidden="true">✓</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .shop-grid {
+    padding: 100px 24px;
+    background: var(--bg-2);
+    border-top: 1px solid var(--line);
+  }
+
+  .shop-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .shop-header {
+    margin-bottom: 56px;
+  }
+
+  .section-eyebrow {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.12;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--green);
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 28px;
+  }
+
+  @media (min-width: 768px) {
+    .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .products-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Cards */
+  .product-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.35s var(--ease-out-expo), transform 0.35s var(--ease-out-expo), border-color 0.3s ease;
+  }
+
+  @media (hover: hover) {
+    .product-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-6px);
+      border-color: rgba(176,137,74,0.25);
+    }
+  }
+
+  .card-visual {
+    background: linear-gradient(145deg, var(--bg-2) 0%, var(--bg-3) 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 220px;
+    padding: 24px 24px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-visual::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 60px;
+    background: radial-gradient(ellipse, rgba(176,137,74,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .card-bottle {
+    width: auto;
+    max-height: 195px;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 12px 24px rgba(34,31,26,0.15));
+    transition: transform 0.35s var(--ease-out-expo);
+  }
+
+  @media (hover: hover) {
+    .product-card:hover .card-bottle {
+      transform: translateY(-6px) scale(1.03);
+    }
+  }
+
+  .card-info {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-top: 1px solid var(--line-2);
+  }
+
+  .card-name {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  .card-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-weight: 400;
+    flex: 1;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line-2);
+  }
+
+  .card-price {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .card-add-btn {
+    position: relative;
+    width: 80px;
+    height: 34px;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    overflow: hidden;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  @media (hover: hover) {
+    .card-add-btn:hover {
+      background: var(--green);
+      border-color: var(--green);
+      color: #f7f3ec;
+    }
+  }
+
+  .card-btn-label,
+  .card-btn-confirm {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s var(--ease-out-expo);
+  }
+
+  .card-btn-confirm {
+    transform: translateY(100%);
+    color: #f7f3ec;
+    background: var(--sage);
+  }
+
+  .card-add-btn.added .card-btn-confirm {
+    transform: translateY(0);
+  }
+
+  .card-add-btn.added .card-btn-label {
+    transform: translateY(-100%);
+  }
+</style>

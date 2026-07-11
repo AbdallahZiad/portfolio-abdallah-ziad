@@ -1,0 +1,168 @@
+---
+---
+<section class="newsletter" aria-labelledby="newsletter-heading">
+  <div class="newsletter-inner">
+    <div class="newsletter-text reveal">
+      <h2 class="newsletter-headline" id="newsletter-heading">Join the ritual.</h2>
+      <p class="newsletter-sub">Enjoy 10% off your first order, plus early access to new formulas and ritual guides in your inbox.</p>
+    </div>
+
+    <form class="newsletter-form reveal delay-2" action="#" method="post" aria-label="Newsletter signup">
+      <label for="email-input" class="sr-only">Email address</label>
+      <div class="form-group">
+        <input
+          type="email"
+          id="email-input"
+          name="email"
+          placeholder="your@email.com"
+          class="email-input"
+          required
+          autocomplete="email"
+        />
+        <button type="submit" class="form-submit">
+          Sign up
+        </button>
+      </div>
+      <p class="form-note">No spam, ever. Unsubscribe any time.</p>
+    </form>
+  </div>
+
+  <!-- Decorative botanical -->
+  <div class="nl-botanical" aria-hidden="true">
+    <svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 155 C60 130, 20 110, 15 75 C10 45, 30 20, 55 18 C75 16, 90 30, 100 50" stroke="#6f7d5f" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.35"/>
+      <path d="M100 155 C140 130, 180 110, 185 75 C190 45, 170 20, 145 18 C125 16, 110 30, 100 50" stroke="#6f7d5f" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.35"/>
+      <ellipse cx="45" cy="70" rx="22" ry="10" fill="#6f7d5f" fill-opacity="0.10" transform="rotate(-35, 45, 70)"/>
+      <ellipse cx="30" cy="50" rx="18" ry="8" fill="#6f7d5f" fill-opacity="0.10" transform="rotate(-50, 30, 50)"/>
+      <ellipse cx="55" cy="38" rx="15" ry="7" fill="#6f7d5f" fill-opacity="0.08" transform="rotate(-60, 55, 38)"/>
+      <ellipse cx="155" cy="70" rx="22" ry="10" fill="#6f7d5f" fill-opacity="0.10" transform="rotate(35, 155, 70)"/>
+      <ellipse cx="170" cy="50" rx="18" ry="8" fill="#6f7d5f" fill-opacity="0.10" transform="rotate(50, 170, 50)"/>
+      <ellipse cx="145" cy="38" rx="15" ry="7" fill="#6f7d5f" fill-opacity="0.08" transform="rotate(60, 145, 38)"/>
+    </svg>
+  </div>
+</section>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .newsletter {
+    padding: 100px 24px;
+    background: var(--bg-3);
+    border-top: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nl-botanical {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .newsletter-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .newsletter-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+
+  .newsletter-sub {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .form-group {
+    display: flex;
+    width: 100%;
+    max-width: 460px;
+    border: 1px solid rgba(34,31,26,0.20);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+    background: var(--bg);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .form-group:focus-within {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(176,137,74,0.12);
+  }
+
+  .email-input {
+    flex: 1;
+    padding: 14px 20px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    color: var(--ink);
+    min-width: 0;
+  }
+
+  .email-input::placeholder {
+    color: var(--muted);
+    opacity: 0.7;
+  }
+
+  .form-submit {
+    padding: 12px 24px;
+    margin: 4px;
+    background: var(--green);
+    color: #f7f3ec;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  @media (hover: hover) {
+    .form-submit:hover {
+      background: var(--ink);
+    }
+  }
+
+  .form-note {
+    font-size: 0.72rem;
+    color: var(--muted);
+    opacity: 0.75;
+  }
+</style>

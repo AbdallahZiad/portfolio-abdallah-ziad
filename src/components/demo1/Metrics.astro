@@ -1,0 +1,171 @@
+---
+---
+<section class="metrics-section" aria-labelledby="metrics-heading">
+  <div class="metrics-inner">
+    <h2 id="metrics-heading" class="sr-only">Key metrics</h2>
+    <div class="metrics-grid">
+      <div class="metric reveal" role="figure" aria-label="48% average lift in activation">
+        <div class="metric-value">
+          <span class="metric-num count-up-m" data-target="48" data-suffix="%">0%</span>
+        </div>
+        <div class="metric-label">avg lift in activation</div>
+      </div>
+      <div class="metric-divider" aria-hidden="true"></div>
+      <div class="metric reveal delay-1" role="figure" aria-label="3.2x faster to insight">
+        <div class="metric-value">
+          <span class="metric-num count-up-m" data-target="3.2" data-suffix="x" data-decimal="true">0x</span>
+        </div>
+        <div class="metric-label">faster to insight</div>
+      </div>
+      <div class="metric-divider" aria-hidden="true"></div>
+      <div class="metric reveal delay-2" role="figure" aria-label="10 minutes to first dashboard">
+        <div class="metric-value">
+          <span class="metric-num count-up-m" data-target="10" data-suffix=" min">0 min</span>
+        </div>
+        <div class="metric-label">to first dashboard</div>
+      </div>
+      <div class="metric-divider" aria-hidden="true"></div>
+      <div class="metric reveal delay-3" role="figure" aria-label="99.99% uptime">
+        <div class="metric-value">
+          <span class="metric-num">99.99%</span>
+        </div>
+        <div class="metric-label">uptime SLA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .metrics-section {
+    padding: 5rem 1.5rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.04) 50%, rgba(236, 72, 153, 0.06) 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .metrics-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(7, 5, 18, 0.3) 100%);
+    pointer-events: none;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .metrics-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+  }
+
+  /* Desktop: single row of 4 metrics separated by hairline dividers */
+  @media (min-width: 1000px) {
+    .metrics-grid {
+      grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr;
+      gap: 0;
+    }
+  }
+
+  .metric {
+    text-align: center;
+    padding: 1rem 1.25rem;
+  }
+
+  @media (min-width: 1000px) {
+    .metric { padding: 1rem 2rem; }
+  }
+
+  .metric-divider {
+    width: 1px;
+    height: 60px;
+    background: var(--border-2);
+    margin: 0 auto;
+    display: none;
+  }
+
+  /* Dividers only make sense in the single-row desktop layout */
+  @media (min-width: 1000px) {
+    .metric-divider { display: block; }
+  }
+
+  .metric-value {
+    margin-bottom: 0.5rem;
+  }
+
+  .metric-num {
+    font-family: var(--font-head);
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    background: var(--grad-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .metric-label {
+    font-size: 0.875rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    function countUpM(el) {
+      var target = parseFloat(el.dataset.target);
+      var suffix = el.dataset.suffix || '';
+      var isDecimal = el.dataset.decimal === 'true';
+      var duration = 1600;
+      var start = null;
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        el.textContent = (isDecimal ? target.toFixed(1) : Math.round(target)) + suffix;
+        return;
+      }
+
+      function step(ts) {
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / duration, 1);
+        var e = 1 - Math.pow(1 - p, 3);
+        var c = target * e;
+        el.textContent = (isDecimal ? c.toFixed(1) : Math.round(c)) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.count-up-m').forEach(countUpM);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    var sec = document.querySelector('.metrics-section');
+    if (sec) observer.observe(sec);
+  })();
+</script>

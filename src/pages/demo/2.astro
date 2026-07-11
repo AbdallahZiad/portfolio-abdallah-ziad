@@ -1,0 +1,172 @@
+---
+import Demo2Layout from "../../layouts/Demo2Layout.astro";
+import AnnouncementBar from "../../components/demo2/AnnouncementBar.astro";
+import Nav from "../../components/demo2/Nav.astro";
+import Hero from "../../components/demo2/Hero.astro";
+import FeaturedProduct from "../../components/demo2/FeaturedProduct.astro";
+import ProductGrid from "../../components/demo2/ProductGrid.astro";
+import Philosophy from "../../components/demo2/Philosophy.astro";
+import Ritual from "../../components/demo2/Ritual.astro";
+import Sustainability from "../../components/demo2/Sustainability.astro";
+import Reviews from "../../components/demo2/Reviews.astro";
+import Journal from "../../components/demo2/Journal.astro";
+import Newsletter from "../../components/demo2/Newsletter.astro";
+import Footer from "../../components/demo2/Footer.astro";
+---
+
+<Demo2Layout
+  title="Aurelia — Botanical Skincare"
+  description="Clean, clinically-considered skincare formulas made with cold-pressed botanicals. Discover Aurelia's collection of luxury botanical serums, oils, and essences."
+>
+  <!-- Portfolio back link -->
+  <a href="/" class="portfolio-back" aria-label="Back to portfolio">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 7H2M6 3L2 7l4 4"/>
+    </svg>
+    Portfolio
+  </a>
+
+  <AnnouncementBar />
+  <Nav />
+  <main id="main-content">
+    <Hero />
+    <FeaturedProduct />
+    <ProductGrid />
+    <Philosophy />
+    <Ritual />
+    <Sustainability />
+    <Reviews />
+    <Journal />
+    <Newsletter />
+  </main>
+  <Footer />
+</Demo2Layout>
+
+<!-- Scroll reveal -->
+<script is:inline>
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      observer.observe(el);
+    });
+  })();
+</script>
+
+<!-- Cart counter & add-to-bag interactions -->
+<script is:inline>
+  (function () {
+    var cartCount = 0;
+    var cartEl = document.getElementById('cart-count');
+    var cartBtn = document.getElementById('cart-btn');
+
+    function bumpCart() {
+      cartCount++;
+      if (cartEl) {
+        cartEl.textContent = String(cartCount);
+        cartEl.classList.add('bump');
+        if (cartBtn) cartBtn.setAttribute('aria-label', 'Shopping bag, ' + cartCount + ' item' + (cartCount !== 1 ? 's' : ''));
+        setTimeout(function () { cartEl.classList.remove('bump'); }, 350);
+      }
+    }
+
+    function handleAddBtn(btn, labelClass, confirmClass) {
+      if (btn.classList.contains('added')) return;
+      bumpCart();
+      btn.classList.add('added');
+      var label = btn.querySelector('.' + labelClass);
+      if (label) label.setAttribute('aria-hidden', 'true');
+      setTimeout(function () {
+        btn.classList.remove('added');
+        if (label) label.removeAttribute('aria-hidden');
+      }, 2000);
+    }
+
+    // Featured product button
+    var featuredBtn = document.querySelector('.btn-add-to-bag');
+    if (featuredBtn) {
+      featuredBtn.addEventListener('click', function () {
+        handleAddBtn(featuredBtn, 'btn-label', 'btn-confirm');
+      });
+    }
+
+    // Grid add buttons
+    document.querySelectorAll('.card-add-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        handleAddBtn(btn, 'card-btn-label', 'card-btn-confirm');
+      });
+    });
+  })();
+</script>
+
+<!-- Gentle hero parallax on botanicals -->
+<script is:inline>
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var leftLeaf = document.querySelector('.leaf-left');
+    var rightLeaf = document.querySelector('.leaf-right');
+    var heroBottle = document.querySelector('.hero-bottle');
+
+    if (!leftLeaf && !rightLeaf) return;
+
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(function () {
+          var scrolled = window.scrollY;
+          if (leftLeaf) leftLeaf.style.transform = 'rotate(-10deg) translateY(' + (scrolled * 0.08) + 'px)';
+          if (rightLeaf) rightLeaf.style.transform = 'rotate(10deg) translateY(' + (scrolled * 0.05) + 'px)';
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  })();
+</script>
+
+<style>
+  .portfolio-back {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 200;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(247, 243, 236, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(34, 31, 26, 0.14);
+    border-radius: 100px;
+    padding: 8px 14px 8px 12px;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    text-transform: uppercase;
+    box-shadow: 0 2px 12px rgba(34,31,26,0.10);
+    transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  @media (hover: hover) {
+    .portfolio-back:hover {
+      background: var(--green);
+      color: #f7f3ec;
+      border-color: var(--green);
+      box-shadow: 0 4px 20px rgba(56,69,47,0.22);
+    }
+  }
+</style>

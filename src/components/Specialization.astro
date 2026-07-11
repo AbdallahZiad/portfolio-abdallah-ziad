@@ -1,0 +1,156 @@
+---
+const items = [
+  "Google Ads API",
+  "Merchant Center",
+  "Automated campaign deployment",
+  "Keyword volume forecasting",
+  "Search analytics → decisions",
+];
+---
+
+<section class="section spec" id="specialization">
+  <div class="container spec-inner">
+    <div class="spec-copy">
+      <span class="eyebrow" data-reveal>Specialization</span>
+      <h2 class="section-title" data-reveal>
+        Advertising &amp; <span class="text-grad">Analytics Engineering</span>
+      </h2>
+      <p class="section-lead" data-reveal>
+        A significant part of my experience sits in the Google advertising and
+        e-commerce ecosystem — Google Ads API, Merchant Center, automated campaign
+        deployment, keyword volume forecasting, and analytics that turn raw search
+        data into decisions.
+      </p>
+      <p class="spec-note" data-reveal>
+        It's a specialized area, and one I work in directly
+        <span class="hl">at the API level.</span>
+      </p>
+    </div>
+
+    <div class="spec-panel glass" data-reveal>
+      <div class="spec-panel-head">
+        <span class="spec-live"><span class="dot"></span> API-level</span>
+        <span class="spec-mono">google.ads.v18</span>
+      </div>
+      <ul class="spec-list">
+        {
+          items.map((it) => (
+            <li>
+              <span class="node"></span>
+              {it}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .spec {
+    position: relative;
+  }
+  .spec::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(50% 60% at 80% 50%, rgba(25, 200, 255, 0.07), transparent 70%);
+    pointer-events: none;
+  }
+  .spec-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .spec-note {
+    margin-top: 22px;
+    font-size: 1.1rem;
+    color: var(--text);
+  }
+  .hl {
+    color: var(--neon);
+    font-weight: 600;
+  }
+
+  .spec-panel {
+    padding: 28px;
+  }
+  .spec-panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 8px;
+  }
+  .spec-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--neon);
+  }
+  .spec-live .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--neon);
+    box-shadow: 0 0 10px var(--neon);
+  }
+  .spec-mono {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--text-dim);
+  }
+  .spec-list {
+    list-style: none;
+  }
+  .spec-list li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 4px;
+    font-size: 1rem;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    transition: padding-left 0.3s var(--ease), color 0.3s var(--ease);
+  }
+  .spec-list li:last-child {
+    border-bottom: none;
+  }
+  @media (hover: hover) {
+    .spec-list li:hover {
+      padding-left: 12px;
+      color: var(--neon);
+    }
+    .spec-list li:hover .node::after {
+      opacity: 1;
+    }
+  }
+  .node {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--neon);
+    flex-shrink: 0;
+    position: relative;
+  }
+  .node::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    background: var(--neon);
+    opacity: 0;
+    transition: opacity 0.3s var(--ease);
+  }
+  @media (max-width: 900px) {
+    .spec-inner {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+  }
+</style>

@@ -1,0 +1,330 @@
+---
+const stack = [
+  "TypeScript",
+  "Python",
+  "React / Next.js",
+  "FastAPI",
+  "PostgreSQL",
+  "Docker",
+  "AWS",
+  "Google Ads API",
+];
+---
+
+<section class="hero" id="top">
+  <svg
+    class="hero-circuit"
+    viewBox="0 0 640 640"
+    fill="none"
+    aria-hidden="true"
+    preserveAspectRatio="xMaxYMid meet"
+  >
+    <defs>
+      <linearGradient id="trace-grad" x1="1" y1="0" x2="0" y2="0">
+        <stop offset="0" stop-color="#22d3ff" stop-opacity="0.55"></stop>
+        <stop offset="1" stop-color="#3b82f6" stop-opacity="0.08"></stop>
+      </linearGradient>
+    </defs>
+
+    <g class="traces" stroke="url(#trace-grad)" stroke-width="1.5">
+      <path id="tp1" d="M640 96 H472 L424 144 H288"></path>
+      <path id="tp2" d="M640 208 H512 L472 248 V336 L428 380 H312"></path>
+      <path id="tp3" d="M640 312 H540 L500 272 H400"></path>
+      <path id="tp4" d="M640 448 H488 L444 404 H356"></path>
+      <path id="tp5" d="M640 536 H508 L468 496 H368"></path>
+    </g>
+
+    <g class="nodes">
+      <circle cx="288" cy="144" r="3.5"></circle>
+      <circle cx="312" cy="380" r="3.5"></circle>
+      <circle cx="400" cy="272" r="3.5"></circle>
+      <circle cx="356" cy="404" r="3.5"></circle>
+      <circle cx="368" cy="496" r="3.5"></circle>
+    </g>
+
+    <g class="pulses">
+      <circle r="2.6">
+        <animateMotion dur="5.2s" begin="1.4s" repeatCount="indefinite"><mpath href="#tp1"></mpath></animateMotion>
+        <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.85;1" dur="5.2s" begin="1.4s" repeatCount="indefinite"></animate>
+      </circle>
+      <circle r="2.6">
+        <animateMotion dur="7.5s" begin="2.1s" repeatCount="indefinite"><mpath href="#tp2"></mpath></animateMotion>
+        <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.85;1" dur="7.5s" begin="2.1s" repeatCount="indefinite"></animate>
+      </circle>
+      <circle r="2.6">
+        <animateMotion dur="6.1s" begin="3s" repeatCount="indefinite"><mpath href="#tp3"></mpath></animateMotion>
+        <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.85;1" dur="6.1s" begin="3s" repeatCount="indefinite"></animate>
+      </circle>
+      <circle r="2.6">
+        <animateMotion dur="6.8s" begin="1.8s" repeatCount="indefinite"><mpath href="#tp4"></mpath></animateMotion>
+        <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.85;1" dur="6.8s" begin="1.8s" repeatCount="indefinite"></animate>
+      </circle>
+      <circle r="2.6">
+        <animateMotion dur="5.6s" begin="2.6s" repeatCount="indefinite"><mpath href="#tp5"></mpath></animateMotion>
+        <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.85;1" dur="5.6s" begin="2.6s" repeatCount="indefinite"></animate>
+      </circle>
+    </g>
+  </svg>
+
+  <div class="container hero-inner">
+    <div class="hero-badge" data-reveal>
+      <span class="dot"></span>
+      Available for new projects
+    </div>
+
+    <h1 class="hero-title" data-reveal style="transition-delay: 90ms">
+      Abdallah Ziad
+    </h1>
+
+    <p class="hero-role" data-reveal style="transition-delay: 180ms">
+      <span class="role-line"></span>
+      Software Engineer
+    </p>
+
+    <p class="hero-tagline" data-reveal style="transition-delay: 260ms">
+      I build software end to end — from the
+      <span class="text-grad">infrastructure</span> to the
+      <span class="text-grad">interface</span>.
+    </p>
+
+    <div class="hero-actions" data-reveal style="transition-delay: 340ms">
+      <a href="#contact" class="btn btn-primary">
+        Get in Touch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#experience" class="btn btn-ghost">See My Work</a>
+    </div>
+
+    <div class="hero-stack" data-reveal style="transition-delay: 420ms">
+      {stack.map((s) => <span class="chip">{s}</span>)}
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding-top: 96px;
+    padding-bottom: 80px;
+    overflow: hidden;
+  }
+
+  /* ---- Circuit traces ---- */
+  .hero-circuit {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(46vw, 620px);
+    height: auto;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero-circuit .traces path {
+    stroke-dasharray: 900;
+    stroke-dashoffset: 900;
+    animation: trace-draw 2.4s var(--ease) forwards;
+  }
+  .hero-circuit .traces path:nth-child(1) { animation-delay: 0.2s; }
+  .hero-circuit .traces path:nth-child(2) { animation-delay: 0.45s; }
+  .hero-circuit .traces path:nth-child(3) { animation-delay: 0.7s; }
+  .hero-circuit .traces path:nth-child(4) { animation-delay: 0.95s; }
+  .hero-circuit .traces path:nth-child(5) { animation-delay: 1.2s; }
+  @keyframes trace-draw {
+    to { stroke-dashoffset: 0; }
+  }
+  .hero-circuit .nodes circle {
+    fill: var(--neon);
+    opacity: 0;
+    animation: node-in 0.8s var(--ease) forwards 1.9s;
+    filter: drop-shadow(0 0 6px rgba(34, 211, 255, 0.9));
+  }
+  @keyframes node-in {
+    from { opacity: 0; }
+    to { opacity: 0.9; }
+  }
+  .hero-circuit .pulses circle {
+    fill: #9deeff;
+    opacity: 0;
+    filter: drop-shadow(0 0 5px #22d3ff) drop-shadow(0 0 12px rgba(34, 211, 255, 0.6));
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-circuit .traces path {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+    .hero-circuit .nodes circle {
+      animation: none;
+      opacity: 0.9;
+    }
+    .hero-circuit .pulses {
+      display: none;
+    }
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    width: 620px;
+    height: 620px;
+    top: -180px;
+    right: -120px;
+    background: radial-gradient(circle, rgba(25, 200, 255, 0.22), transparent 65%);
+    filter: blur(20px);
+    animation: float 14s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    bottom: -220px;
+    left: -140px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2), transparent 65%);
+    filter: blur(20px);
+    animation: float 18s ease-in-out infinite reverse;
+    pointer-events: none;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(40px) translateX(-30px); }
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    letter-spacing: 0.02em;
+  }
+  .hero-badge .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22ff9d;
+    box-shadow: 0 0 0 0 rgba(34, 255, 157, 0.6);
+    animation: pulse 2.4s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(34, 255, 157, 0.5); }
+    70% { box-shadow: 0 0 0 8px rgba(34, 255, 157, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(34, 255, 157, 0); }
+  }
+
+  .hero-title {
+    margin-top: 26px;
+    font-size: clamp(3rem, 11vw, 7rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    font-weight: 800;
+    background: linear-gradient(180deg, #ffffff 30%, #a9c7e6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero-role {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 18px;
+    font-family: var(--font-mono);
+    font-size: clamp(1rem, 2.2vw, 1.35rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--neon);
+  }
+  .role-line {
+    width: clamp(30px, 6vw, 60px);
+    height: 2px;
+    background: var(--grad);
+    border-radius: 2px;
+  }
+  .hero-tagline {
+    margin-top: 28px;
+    max-width: 34ch;
+    font-size: clamp(1.35rem, 3.4vw, 2.1rem);
+    line-height: 1.28;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  .hero-tagline .text-grad {
+    font-weight: 700;
+  }
+
+  .hero-actions {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .hero-stack {
+    margin-top: 52px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .chip {
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: color 0.25s var(--ease), border-color 0.25s var(--ease),
+      transform 0.25s var(--ease);
+  }
+  @media (hover: hover) {
+    .chip:hover {
+      color: var(--neon);
+      border-color: var(--neon-line);
+      transform: translateY(-2px);
+    }
+  }
+
+
+  @media (max-width: 900px) {
+    .hero-circuit {
+      top: 4%;
+      transform: none;
+      width: 74vw;
+      right: -14vw;
+      opacity: 0.4;
+    }
+  }
+  @media (max-width: 640px) {
+.hero { padding-top: 88px; }
+    /* Smaller, cheaper glow orbs on mobile GPUs */
+    .hero::before {
+      width: 360px;
+      height: 360px;
+      top: -120px;
+      right: -100px;
+      filter: blur(12px);
+    }
+    .hero::after {
+      width: 300px;
+      height: 300px;
+      bottom: -140px;
+      left: -110px;
+      filter: blur(12px);
+    }
+  }
+</style>

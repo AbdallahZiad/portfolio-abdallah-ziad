@@ -1,0 +1,217 @@
+---
+const articles = [
+  {
+    category: "Ritual",
+    title: "The case for doing less",
+    excerpt: "The skincare industry profits from complexity. Here's why a three-step routine outperforms ten.",
+    readTime: "4 min read",
+    gradient: "linear-gradient(135deg, #e8ddd0 0%, #d4c8b8 100%)",
+    accent: "#6f7d5f",
+  },
+  {
+    category: "Ingredients",
+    title: "Retinal vs. retinol, explained",
+    excerpt: "They're not the same molecule. We break down the science, the evidence, and which one earns its place on your shelf.",
+    readTime: "6 min read",
+    gradient: "linear-gradient(135deg, #dde4d8 0%, #c8d4c0 100%)",
+    accent: "#38452f",
+  },
+  {
+    category: "Evening",
+    title: "Building a two-minute evening ritual",
+    excerpt: "You don't need thirty minutes. You need the right two products, applied consistently. A guide for the time-pressed.",
+    readTime: "3 min read",
+    gradient: "linear-gradient(135deg, #e8ddd0 0%, #c8b8a4 100%)",
+    accent: "#b0894a",
+  },
+];
+---
+
+<section class="journal" id="journal" aria-labelledby="journal-heading">
+  <div class="journal-inner">
+    <div class="journal-header">
+      <span class="section-eyebrow reveal">The Journal</span>
+      <h2 class="journal-heading reveal delay-1" id="journal-heading">
+        Knowledge, not noise.
+      </h2>
+    </div>
+
+    <div class="articles-grid">
+      {articles.map((a, i) => (
+        <article class={`article-card reveal delay-${i + 1}`}>
+          <!-- Visual placeholder -->
+          <div class="article-visual" style={`background: ${a.gradient};`} aria-hidden="true">
+            <div class="article-leaf-accent">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+                <path d="M10 70 C10 40, 30 20, 60 10" stroke={a.accent} stroke-width="1.2" stroke-linecap="round" opacity="0.45"/>
+                <path d="M10 70 C25 55, 50 50, 60 10" stroke={a.accent} stroke-width="0.8" stroke-linecap="round" opacity="0.28"/>
+                <ellipse cx="30" cy="45" rx="12" ry="6" fill={a.accent} fill-opacity="0.10" transform="rotate(-35, 30, 45)"/>
+                <ellipse cx="45" cy="30" rx="12" ry="5" fill={a.accent} fill-opacity="0.12" transform="rotate(-48, 45, 30)"/>
+                <ellipse cx="56" cy="18" rx="9" ry="4.5" fill={a.accent} fill-opacity="0.10" transform="rotate(-58, 56, 18)"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="article-info">
+            <div class="article-meta">
+              <span class="article-category">{a.category}</span>
+              <span class="article-read-time">{a.readTime}</span>
+            </div>
+            <h3 class="article-title">{a.title}</h3>
+            <p class="article-excerpt">{a.excerpt}</p>
+            <a href="#" class="article-link" aria-label={`Read: ${a.title}`}>
+              Read more
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 6h10M7 2l4 4-4 4"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .journal {
+    padding: 100px 24px;
+    background: var(--bg-2);
+    border-top: 1px solid var(--line);
+  }
+
+  .journal-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .journal-header {
+    margin-bottom: 56px;
+  }
+
+  .section-eyebrow {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .journal-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 400;
+    color: var(--ink);
+    font-style: italic;
+    line-height: 1.12;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  @media (min-width: 768px) {
+    .articles-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .article-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.35s var(--ease-out-expo), transform 0.35s var(--ease-out-expo);
+  }
+
+  @media (hover: hover) {
+    .article-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+  }
+
+  .article-visual {
+    height: 180px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 16px;
+    overflow: hidden;
+  }
+
+  .article-leaf-accent {
+    opacity: 0.8;
+  }
+
+  .article-info {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .article-category {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .article-read-time {
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .article-title {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  .article-excerpt {
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: var(--muted);
+    font-weight: 300;
+    flex: 1;
+  }
+
+  .article-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-top: 4px;
+    transition: gap 0.2s ease, color 0.2s ease;
+  }
+
+  @media (hover: hover) {
+    .article-link:hover {
+      color: var(--gold);
+      gap: 10px;
+    }
+  }
+</style>

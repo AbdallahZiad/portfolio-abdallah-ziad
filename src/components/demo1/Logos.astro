@@ -1,0 +1,81 @@
+---
+---
+<section class="logos-section" aria-label="Trusted companies">
+  <div class="logos-inner">
+    <p class="logos-label reveal">Trusted by product teams at</p>
+    <div class="logos-row reveal delay-2" role="list" aria-label="Partner companies">
+      <span class="wordmark" role="listitem">Northwind</span>
+      <span class="wordmark-sep" aria-hidden="true"></span>
+      <span class="wordmark" role="listitem">Vertex</span>
+      <span class="wordmark-sep" aria-hidden="true"></span>
+      <span class="wordmark" role="listitem">Loop</span>
+      <span class="wordmark-sep" aria-hidden="true"></span>
+      <span class="wordmark" role="listitem">Cirrus</span>
+      <span class="wordmark-sep" aria-hidden="true"></span>
+      <span class="wordmark" role="listitem">Payload</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .logos-section {
+    padding: 3rem 1.5rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+    text-align: center;
+  }
+
+  .logos-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .logos-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--muted-2);
+    text-transform: uppercase;
+    margin-bottom: 1.75rem;
+  }
+
+  .logos-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+  }
+
+  .wordmark {
+    font-family: var(--font-head);
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-weight: 600;
+    color: rgba(160, 156, 192, 0.5);
+    letter-spacing: -0.01em;
+    transition: color 0.25s;
+    cursor: default;
+    user-select: none;
+  }
+
+  @media (hover: hover) {
+    .wordmark:hover {
+      color: rgba(160, 156, 192, 0.85);
+    }
+  }
+
+  .wordmark-sep {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--border-2);
+    display: none;
+  }
+
+  @media (min-width: 600px) {
+    .wordmark-sep {
+      display: block;
+    }
+  }
+</style>
