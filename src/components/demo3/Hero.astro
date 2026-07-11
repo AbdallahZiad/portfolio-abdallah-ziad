@@ -550,11 +550,13 @@
   @media (max-width: 860px) {
     .sh-inner {
       grid-template-columns: 1fr;
-      gap: 52px;
+      gap: 44px;
       padding: 44px 32px 40px;
     }
     /* Show illustration first */
     .sh-visual { order: -1; }
+    /* Cap drawing height so it never swallows the full viewport */
+    .sh-frame { max-height: min(420px, 42vh); overflow: hidden; }
     .sh-desc { max-width: none; }
     .sh-heading { font-size: clamp(3.2rem, 8vw, 4.5rem); }
   }
