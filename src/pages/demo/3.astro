@@ -1,0 +1,72 @@
+---
+import Demo3Layout from '../../layouts/Demo3Layout.astro';
+import Nav from '../../components/demo3/Nav.astro';
+import Hero from '../../components/demo3/Hero.astro';
+import Projects from '../../components/demo3/Projects.astro';
+import Studio from '../../components/demo3/Studio.astro';
+import Services from '../../components/demo3/Services.astro';
+import Process from '../../components/demo3/Process.astro';
+import Contact from '../../components/demo3/Contact.astro';
+import Footer from '../../components/demo3/Footer.astro';
+---
+
+<Demo3Layout
+  title="Stratum — Architecture & Interior Design"
+  description="Stratum is a premier architecture and interior design studio creating timeless spaces across Europe and North America."
+>
+  <a href="/" class="s-back" aria-label="Back to portfolio">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+      stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+      stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 7H2M6 3L2 7l4 4"/>
+    </svg>
+    Portfolio
+  </a>
+
+  <Nav />
+
+  <main id="main-content">
+    <Hero />
+    <Projects />
+    <Studio />
+    <Services />
+    <Process />
+    <Contact />
+  </main>
+
+  <Footer />
+</Demo3Layout>
+
+<style>
+  .s-back {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 200;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(245, 241, 233, 0.90);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(13, 12, 10, 0.14);
+    border-radius: 100px;
+    padding: 8px 14px 8px 11px;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    text-transform: uppercase;
+    box-shadow: 0 2px 12px rgba(13, 12, 10, 0.10);
+    transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  @media (hover: hover) {
+    .s-back:hover {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+      box-shadow: 0 4px 20px rgba(13, 12, 10, 0.20);
+    }
+  }
+</style>

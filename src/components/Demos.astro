@@ -16,6 +16,14 @@ const demos = [
     accent: "#b0894a",
     line: "rgba(176, 137, 74, 0.5)",
   },
+  {
+    href: "/demo/3",
+    name: "Stratum",
+    tag: "Architecture Studio",
+    preview: "/previews/demo3.jpg",
+    accent: "#C4953A",
+    line: "rgba(196, 149, 58, 0.45)",
+  },
 ];
 ---
 
@@ -60,29 +68,6 @@ const demos = [
         ))
       }
 
-      <!-- Coming Soon card -->
-      <div class="demo-card demo-card--soon glass" data-reveal aria-label="Demo coming soon">
-        <div class="demo-preview demo-soon">
-          <div class="pv-soon">
-            <svg class="pv-soon-ring" viewBox="0 0 80 80" aria-hidden="true">
-              <circle cx="40" cy="40" r="30" fill="none" stroke="rgba(25,200,255,0.12)" stroke-width="1"/>
-              <circle cx="40" cy="40" r="30" fill="none" stroke="rgba(25,200,255,0.5)" stroke-width="1.5"
-                stroke-dasharray="18 8" stroke-linecap="round">
-                <animateTransform attributeName="transform" type="rotate" from="0 40 40" to="360 40 40" dur="12s" repeatCount="indefinite"/>
-              </circle>
-              <circle cx="40" cy="40" r="18" fill="none" stroke="rgba(25,200,255,0.18)" stroke-width="1"
-                stroke-dasharray="6 4">
-                <animateTransform attributeName="transform" type="rotate" from="360 40 40" to="0 40 40" dur="8s" repeatCount="indefinite"/>
-              </circle>
-            </svg>
-            <span class="pv-soon-label">Coming Soon</span>
-          </div>
-        </div>
-        <div class="demo-meta">
-          <span class="demo-name demo-name--soon">In Progress</span>
-        </div>
-        <span class="demo-tag">New concept · Stay tuned</span>
-      </div>
     </div>
   </div>
 </section>
@@ -130,33 +115,6 @@ const demos = [
     display: block;
   }
 
-  /* ---- Coming Soon card ---- */
-  .demo-card--soon { cursor: default; }
-  .demo-soon {
-    background: radial-gradient(110% 110% at 50% 50%, rgba(25, 200, 255, 0.06), transparent 70%),
-      var(--bg-2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .pv-soon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  .pv-soon-ring { width: 72px; height: 72px; }
-  .pv-soon-label {
-    font-family: var(--font-mono);
-    font-size: 0.64rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--neon);
-    opacity: 0.65;
-  }
-  .demo-name--soon { color: var(--text-muted); }
-
   /* ---- Meta row ---- */
   .demo-meta {
     display: flex;
@@ -191,9 +149,7 @@ const demos = [
     color: var(--text-dim);
   }
 
-  /* Tablet: 2-up hybrid. Third card spans the full row but is capped to one column
-     width (calc(50% - 12px) = half grid minus half the 24px gap) so its 16/11
-     preview stays the same height as the two real cards beside it. */
+  /* Tablet: 2-up, third card alone on second row centered at half width */
   @media (min-width: 641px) and (max-width: 980px) {
     .demo-grid {
       grid-template-columns: repeat(2, 1fr);

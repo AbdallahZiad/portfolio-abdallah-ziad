@@ -1,0 +1,559 @@
+---
+const projects = [
+  {
+    id: "01",
+    name: "Residence No. 14",
+    type: "Residential",
+    location: "Porto, Portugal",
+    year: "2024",
+    size: "lg",
+  },
+  {
+    id: "02",
+    name: "Meridian Cultural Centre",
+    type: "Cultural",
+    location: "Lisbon, Portugal",
+    year: "2023",
+    size: "sm",
+  },
+  {
+    id: "03",
+    name: "Oak Tower",
+    type: "Commercial",
+    location: "London, UK",
+    year: "2023",
+    size: "sm",
+  },
+  {
+    id: "04",
+    name: "Casa Blava",
+    type: "Residential",
+    location: "Barcelona, Spain",
+    year: "2022",
+    size: "wide",
+  },
+];
+---
+
+<section class="pj" id="work" aria-labelledby="pj-heading">
+  <div class="pj-inner">
+    <div class="pj-header reveal">
+      <div class="pj-header-left">
+        <span class="pj-eyebrow">
+          <span class="pj-eyebrow-bar" aria-hidden="true"></span>
+          Selected Work
+        </span>
+        <h2 class="pj-heading" id="pj-heading">Projects that<br/><em>define spaces.</em></h2>
+      </div>
+      <div class="pj-header-right">
+        <p class="pj-lead">From private residences to civic landmarks, each project begins with a single question: how should this space feel?</p>
+        <a href="#contact" class="pj-all">
+          All projects
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2 7h10M7.5 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="pj-grid">
+
+      <!-- Card 01 – Residence No. 14 (tall left) -->
+      <article class="pj-card pj-card--lg reveal d1" aria-labelledby="pj-title-01">
+        <div class="pj-visual">
+          <!-- Modern villa, cross-section / side elevation -->
+          <svg viewBox="0 0 480 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Elevation drawing of Residence No. 14">
+            <!-- Sky/bg hint -->
+            <rect width="480" height="360" fill="#ECE7DC"/>
+            <!-- Ground -->
+            <line x1="0" y1="316" x2="480" y2="316" stroke="#0D0C0A" stroke-width="0.8" opacity="0.3"/>
+            <!-- Ground shadow -->
+            <ellipse cx="240" cy="322" rx="200" ry="8" fill="rgba(13,12,10,0.07)"/>
+
+            <!-- Floating roof slab -->
+            <rect x="40" y="120" width="400" height="16" fill="#0D0C0A" rx="1"/>
+            <!-- Roof overhang ends -->
+            <rect x="40" y="124" width="12" height="180" fill="#0D0C0A" opacity="0.06"/>
+            <rect x="428" y="124" width="12" height="180" fill="#0D0C0A" opacity="0.06"/>
+
+            <!-- Main body -->
+            <rect x="52" y="136" width="376" height="180" fill="#E2DCCF" stroke="#0D0C0A" stroke-width="0.9"/>
+
+            <!-- Left solid wall section -->
+            <rect x="52" y="136" width="80" height="180" fill="#D4CCBC"/>
+
+            <!-- Large glazing centre -->
+            <rect x="132" y="136" width="200" height="180" fill="rgba(195,185,165,0.3)" stroke="#0D0C0A" stroke-width="0.7"/>
+            <!-- Glazing vertical mullions -->
+            <line x1="198" y1="136" x2="198" y2="316" stroke="#0D0C0A" stroke-width="0.5" opacity="0.45"/>
+            <line x1="264" y1="136" x2="264" y2="316" stroke="#0D0C0A" stroke-width="0.5" opacity="0.45"/>
+
+            <!-- Right wing (set back slightly) -->
+            <rect x="332" y="148" width="96" height="168" fill="#DAD4C4" stroke="#0D0C0A" stroke-width="0.8"/>
+            <!-- Wing glazing -->
+            <rect x="348" y="162" width="64" height="90" fill="rgba(195,185,165,0.3)" stroke="#0D0C0A" stroke-width="0.6"/>
+            <line x1="380" y1="162" x2="380" y2="252" stroke="#0D0C0A" stroke-width="0.45" opacity="0.4"/>
+
+            <!-- Terracotta accent on left wall -->
+            <rect x="52" y="136" width="80" height="8" fill="#C4953A" opacity="0.85"/>
+
+            <!-- Interior suggestion through glass -->
+            <line x1="152" y1="200" x2="312" y2="200" stroke="#0D0C0A" stroke-width="0.5" opacity="0.18" stroke-dasharray="8 5"/>
+            <line x1="152" y1="240" x2="312" y2="240" stroke="#0D0C0A" stroke-width="0.5" opacity="0.14" stroke-dasharray="8 5"/>
+
+            <!-- Foundation -->
+            <rect x="52" y="308" width="376" height="8" fill="#C8C0B0"/>
+
+            <!-- Steps / entry -->
+            <rect x="148" y="308" width="80" height="6" fill="#C0B8A8"/>
+            <rect x="156" y="314" width="64" height="4" fill="#B8B0A0"/>
+
+            <!-- Tree left (simple) -->
+            <rect x="18" y="228" width="4" height="88" fill="#0D0C0A" opacity="0.25"/>
+            <ellipse cx="20" cy="212" rx="20" ry="28" fill="#C4953A" opacity="0.12" stroke="#0D0C0A" stroke-width="0.6" opacity="0.2"/>
+
+            <!-- Grid overlay lines (light) -->
+            <line x1="0" y1="0" x2="480" y2="0" stroke="#0D0C0A" stroke-width="0.3" opacity="0.06"/>
+          </svg>
+          <!-- Hover overlay -->
+          <div class="pj-overlay" aria-hidden="true">
+            <span class="pj-overlay-text">View project</span>
+          </div>
+        </div>
+        <div class="pj-meta">
+          <span class="pj-num">#{projects[0].id}</span>
+          <div class="pj-info">
+            <h3 class="pj-title" id="pj-title-01">{projects[0].name}</h3>
+            <span class="pj-sub">{projects[0].location} · {projects[0].year}</span>
+          </div>
+          <span class="pj-type">{projects[0].type}</span>
+        </div>
+      </article>
+
+      <!-- Card 02 – Meridian Cultural Centre (top right) -->
+      <article class="pj-card pj-card--sm reveal d2" aria-labelledby="pj-title-02">
+        <div class="pj-visual">
+          <svg viewBox="0 0 380 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Elevation of Meridian Cultural Centre">
+            <rect width="380" height="220" fill="#E8E2D4"/>
+            <line x1="0" y1="194" x2="380" y2="194" stroke="#0D0C0A" stroke-width="0.7" opacity="0.28"/>
+            <ellipse cx="190" cy="199" rx="160" ry="7" fill="rgba(13,12,10,0.06)"/>
+
+            <!-- Main base volume -->
+            <rect x="30" y="120" width="320" height="74" fill="#DDD7C8" stroke="#0D0C0A" stroke-width="0.9"/>
+
+            <!-- Dramatic arched roof -->
+            <path d="M30 120 Q190 18 350 120" stroke="#0D0C0A" stroke-width="1.4" fill="#D0C8B6"/>
+            <path d="M30 120 Q190 18 350 120 L350 120 L30 120 Z" fill="#D0C8B6"/>
+            <!-- Roof inner line -->
+            <path d="M50 120 Q190 34 330 120" stroke="#0D0C0A" stroke-width="0.55" fill="none" opacity="0.3"/>
+
+            <!-- Terracotta fascia strip -->
+            <path d="M30 120 Q190 18 350 120 L342 124 Q190 26 38 124 Z" fill="#C4953A" opacity="0.82"/>
+
+            <!-- Base windows grid -->
+            <rect x="50" y="132" width="40" height="48" fill="rgba(195,185,165,0.35)" stroke="#0D0C0A" stroke-width="0.65"/>
+            <rect x="104" y="132" width="40" height="48" fill="rgba(195,185,165,0.35)" stroke="#0D0C0A" stroke-width="0.65"/>
+            <!-- Wide centre glazing -->
+            <rect x="158" y="128" width="64" height="52" fill="rgba(195,185,165,0.25)" stroke="#0D0C0A" stroke-width="0.65"/>
+            <line x1="190" y1="128" x2="190" y2="180" stroke="#0D0C0A" stroke-width="0.45" opacity="0.35"/>
+            <rect x="236" y="132" width="40" height="48" fill="rgba(195,185,165,0.35)" stroke="#0D0C0A" stroke-width="0.65"/>
+            <rect x="290" y="132" width="40" height="48" fill="rgba(195,185,165,0.35)" stroke="#0D0C0A" stroke-width="0.65"/>
+
+            <!-- Entry doors -->
+            <rect x="168" y="158" width="44" height="36" fill="rgba(195,185,165,0.28)" stroke="#0D0C0A" stroke-width="0.7"/>
+            <line x1="190" y1="158" x2="190" y2="194" stroke="#0D0C0A" stroke-width="0.5" opacity="0.4"/>
+            <!-- Handles -->
+            <circle cx="183" cy="178" r="2.2" fill="#C4953A"/>
+            <circle cx="197" cy="178" r="2.2" fill="#C4953A"/>
+
+            <!-- Steps -->
+            <rect x="148" y="192" width="84" height="4" fill="#C8C0B0"/>
+          </svg>
+          <div class="pj-overlay" aria-hidden="true">
+            <span class="pj-overlay-text">View project</span>
+          </div>
+        </div>
+        <div class="pj-meta">
+          <span class="pj-num">#{projects[1].id}</span>
+          <div class="pj-info">
+            <h3 class="pj-title" id="pj-title-02">{projects[1].name}</h3>
+            <span class="pj-sub">{projects[1].location} · {projects[1].year}</span>
+          </div>
+          <span class="pj-type">{projects[1].type}</span>
+        </div>
+      </article>
+
+      <!-- Card 03 – Oak Tower (bottom right) -->
+      <article class="pj-card pj-card--sm reveal d3" aria-labelledby="pj-title-03">
+        <div class="pj-visual">
+          <svg viewBox="0 0 380 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Elevation of Oak Tower">
+            <rect width="380" height="220" fill="#E4DDD0"/>
+            <line x1="0" y1="196" x2="380" y2="196" stroke="#0D0C0A" stroke-width="0.7" opacity="0.28"/>
+            <ellipse cx="190" cy="202" rx="120" ry="7" fill="rgba(13,12,10,0.06)"/>
+
+            <!-- Tower base/podium -->
+            <rect x="100" y="160" width="180" height="36" fill="#D4CCBC" stroke="#0D0C0A" stroke-width="0.9"/>
+            <!-- Podium windows -->
+            <rect x="116" y="166" width="30" height="22" fill="rgba(195,185,165,0.35)" stroke="#0D0C0A" stroke-width="0.6"/>
+            <rect x="154" y="166" width="72" height="22" fill="rgba(195,185,165,0.28)" stroke="#0D0C0A" stroke-width="0.6"/>
+            <line x1="190" y1="166" x2="190" y2="188" stroke="#0D0C0A" stroke-width="0.4" opacity="0.35"/>
+            <rect x="234" y="166" width="30" height="22" fill="rgba(195,185,165,0.35)" stroke="#0D0C0A" stroke-width="0.6"/>
+
+            <!-- Main tower shaft -->
+            <rect x="140" y="20" width="100" height="142" fill="#DDD8CC" stroke="#0D0C0A" stroke-width="1.1"/>
+            <!-- Horizontal banding -->
+            <line x1="140" y1="40"  x2="240" y2="40"  stroke="#0D0C0A" stroke-width="0.5" opacity="0.22"/>
+            <line x1="140" y1="60"  x2="240" y2="60"  stroke="#0D0C0A" stroke-width="0.5" opacity="0.22"/>
+            <line x1="140" y1="80"  x2="240" y2="80"  stroke="#0D0C0A" stroke-width="0.5" opacity="0.22"/>
+            <line x1="140" y1="100" x2="240" y2="100" stroke="#0D0C0A" stroke-width="0.5" opacity="0.22"/>
+            <line x1="140" y1="120" x2="240" y2="120" stroke="#0D0C0A" stroke-width="0.5" opacity="0.22"/>
+            <line x1="140" y1="140" x2="240" y2="140" stroke="#0D0C0A" stroke-width="0.5" opacity="0.22"/>
+
+            <!-- Glazing bands (alternating solid/glass) -->
+            <rect x="148" y="21" width="84" height="18" fill="rgba(195,185,165,0.28)" stroke="none"/>
+            <rect x="148" y="41" width="84" height="18" fill="#D4CCBC"/>
+            <rect x="148" y="61" width="84" height="18" fill="rgba(195,185,165,0.28)" stroke="none"/>
+            <rect x="148" y="81" width="84" height="18" fill="#D4CCBC"/>
+            <rect x="148" y="101" width="84" height="18" fill="rgba(195,185,165,0.28)" stroke="none"/>
+            <rect x="148" y="121" width="84" height="18" fill="#D4CCBC"/>
+            <rect x="148" y="141" width="84" height="18" fill="rgba(195,185,165,0.28)" stroke="none"/>
+
+            <!-- Crown / top accent -->
+            <rect x="140" y="12" width="100" height="10" fill="#C4953A" opacity="0.9"/>
+            <rect x="152" y="8" width="76" height="6" fill="#0D0C0A" opacity="0.7"/>
+
+            <!-- Entry -->
+            <rect x="172" y="172" width="36" height="24" fill="rgba(195,185,165,0.3)" stroke="#0D0C0A" stroke-width="0.6"/>
+            <line x1="190" y1="172" x2="190" y2="196" stroke="#0D0C0A" stroke-width="0.4" opacity="0.4"/>
+          </svg>
+          <div class="pj-overlay" aria-hidden="true">
+            <span class="pj-overlay-text">View project</span>
+          </div>
+        </div>
+        <div class="pj-meta">
+          <span class="pj-num">#{projects[2].id}</span>
+          <div class="pj-info">
+            <h3 class="pj-title" id="pj-title-03">{projects[2].name}</h3>
+            <span class="pj-sub">{projects[2].location} · {projects[2].year}</span>
+          </div>
+          <span class="pj-type">{projects[2].type}</span>
+        </div>
+      </article>
+
+      <!-- Card 04 – Casa Blava (full-width) -->
+      <article class="pj-card pj-card--wide reveal d2" aria-labelledby="pj-title-04">
+        <div class="pj-visual">
+          <svg viewBox="0 0 900 260" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Elevation of Casa Blava">
+            <rect width="900" height="260" fill="#E6E0D2"/>
+            <line x1="0" y1="232" x2="900" y2="232" stroke="#0D0C0A" stroke-width="0.8" opacity="0.25"/>
+            <ellipse cx="450" cy="238" rx="380" ry="9" fill="rgba(13,12,10,0.05)"/>
+
+            <!-- Pool deck/terrace (left) -->
+            <rect x="20" y="178" width="200" height="54" fill="#CFC8B6" stroke="#0D0C0A" stroke-width="0.8"/>
+            <!-- Pool water -->
+            <rect x="30" y="184" width="180" height="38" fill="rgba(130,170,190,0.38)" stroke="#0D0C0A" stroke-width="0.6"/>
+            <!-- Pool lane lines -->
+            <line x1="120" y1="184" x2="120" y2="222" stroke="rgba(255,255,255,0.5)" stroke-width="0.6"/>
+            <!-- Accent edge -->
+            <rect x="20" y="178" width="200" height="6" fill="#C4953A" opacity="0.7"/>
+
+            <!-- Main living volume (centre) -->
+            <rect x="220" y="108" width="320" height="124" fill="#DDD8C8" stroke="#0D0C0A" stroke-width="1.1"/>
+            <!-- Flat roof overhang -->
+            <rect x="204" y="100" width="352" height="12" fill="#0D0C0A" rx="1"/>
+            <!-- Roof terrace fence -->
+            <line x1="220" y1="100" x2="540" y2="100" stroke="#0D0C0A" stroke-width="0.5" opacity="0.3" stroke-dasharray="5 4"/>
+
+            <!-- Large floor-to-ceiling glazing -->
+            <rect x="240" y="108" width="280" height="124" fill="rgba(190,182,162,0.25)" stroke="#0D0C0A" stroke-width="0.7"/>
+            <!-- Glazing mullions -->
+            <line x1="310" y1="108" x2="310" y2="232" stroke="#0D0C0A" stroke-width="0.5" opacity="0.38"/>
+            <line x1="380" y1="108" x2="380" y2="232" stroke="#0D0C0A" stroke-width="0.5" opacity="0.38"/>
+            <line x1="450" y1="108" x2="450" y2="232" stroke="#0D0C0A" stroke-width="0.5" opacity="0.38"/>
+
+            <!-- Interior suggestion -->
+            <line x1="246" y1="172" x2="514" y2="172" stroke="#0D0C0A" stroke-width="0.45" opacity="0.14" stroke-dasharray="10 6"/>
+
+            <!-- Bedroom wing (right) -->
+            <rect x="540" y="138" width="200" height="94" fill="#D8D2C2" stroke="#0D0C0A" stroke-width="0.9"/>
+            <!-- Wing roof -->
+            <rect x="528" y="130" width="224" height="10" fill="#0D0C0A" opacity="0.75" rx="1"/>
+            <!-- Wing accent -->
+            <rect x="540" y="138" width="200" height="6" fill="#C4953A" opacity="0.65"/>
+            <!-- Wing windows -->
+            <rect x="558" y="152" width="48" height="52" fill="rgba(190,182,162,0.32)" stroke="#0D0C0A" stroke-width="0.65"/>
+            <rect x="618" y="152" width="48" height="52" fill="rgba(190,182,162,0.32)" stroke="#0D0C0A" stroke-width="0.65"/>
+            <rect x="678" y="152" width="48" height="52" fill="rgba(190,182,162,0.32)" stroke="#0D0C0A" stroke-width="0.65"/>
+
+            <!-- Service/garage wing far right -->
+            <rect x="740" y="168" width="140" height="64" fill="#D0CABAA" stroke="#0D0C0A" stroke-width="0.8"/>
+            <rect x="760" y="174" width="100" height="40" fill="#C6C0B0" stroke="#0D0C0A" stroke-width="0.6"/>
+
+            <!-- Right boundary wall -->
+            <rect x="880" y="108" width="8" height="124" fill="#C8C0B0"/>
+
+            <!-- Trees (simple) -->
+            <rect x="870" y="138" width="3" height="94" fill="#0D0C0A" opacity="0.2"/>
+            <ellipse cx="871" cy="124" rx="16" ry="20" fill="none" stroke="#0D0C0A" stroke-width="0.6" opacity="0.2"/>
+
+            <!-- Ground features -->
+            <rect x="220" y="226" width="60" height="6" fill="#C8C0B0"/>
+            <!-- Entry path -->
+            <rect x="358" y="226" width="44" height="6" fill="#C0B8A8"/>
+          </svg>
+          <div class="pj-overlay" aria-hidden="true">
+            <span class="pj-overlay-text">View project</span>
+          </div>
+        </div>
+        <div class="pj-meta">
+          <span class="pj-num">#{projects[3].id}</span>
+          <div class="pj-info">
+            <h3 class="pj-title" id="pj-title-04">{projects[3].name}</h3>
+            <span class="pj-sub">{projects[3].location} · {projects[3].year}</span>
+          </div>
+          <span class="pj-type">{projects[3].type}</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .pj {
+    padding: 120px 0 100px;
+    background: var(--bg);
+  }
+
+  .pj-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* Header */
+  .pj-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: end;
+    margin-bottom: 56px;
+  }
+
+  .pj-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .pj-eyebrow-bar {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .pj-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 3.5vw, 3.4rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  .pj-heading em {
+    font-style: italic;
+    color: var(--muted);
+  }
+
+  .pj-lead {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 22px;
+    max-width: 480px;
+  }
+
+  .pj-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--ink);
+    transition: color 0.2s, border-color 0.2s, gap 0.25s var(--ease);
+  }
+  @media (hover: hover) {
+    .pj-all:hover { color: var(--accent); border-color: var(--accent); gap: 12px; }
+  }
+
+  /* Grid */
+  .pj-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-rows: auto auto;
+    gap: 20px;
+  }
+
+  .pj-card--lg   { grid-row: 1 / 3; }
+  .pj-card--wide { grid-column: 1 / -1; }
+
+  /* Cards */
+  .pj-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--surface);
+    transition: transform 0.4s var(--ease-out), border-color 0.3s var(--ease),
+      box-shadow 0.4s var(--ease);
+    cursor: pointer;
+  }
+  @media (hover: hover) {
+    .pj-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(196,149,58,0.40);
+      box-shadow: 0 20px 48px rgba(13,12,10,0.13);
+    }
+    .pj-card:hover .pj-overlay {
+      opacity: 1;
+    }
+  }
+
+  .pj-visual {
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+  }
+  .pj-visual svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .pj-card--lg .pj-visual   { aspect-ratio: 4 / 3; }
+  .pj-card--sm .pj-visual   { aspect-ratio: 16 / 9; }
+  .pj-card--wide .pj-visual { aspect-ratio: 21 / 8; }
+
+  /* Hover overlay */
+  .pj-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(13,12,10,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.35s var(--ease);
+  }
+  .pj-overlay-text {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--bg);
+    letter-spacing: 0.04em;
+  }
+
+  /* Meta row */
+  .pj-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border-top: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .pj-num {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--dim);
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+  }
+  .pj-info { flex: 1; min-width: 0; }
+  .pj-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--ink);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .pj-sub {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--dim);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .pj-type {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    flex-shrink: 0;
+    background: rgba(196,149,58,0.14);
+    padding: 4px 10px;
+    border-radius: 100px;
+    border: 1px solid rgba(196,149,58,0.28);
+  }
+
+  /* Responsive */
+  @media (max-width: 1100px) {
+    .pj-inner { padding: 0 36px; }
+    .pj-grid { gap: 16px; }
+  }
+
+  @media (max-width: 860px) {
+    .pj { padding: 80px 0 72px; }
+    .pj-inner { padding: 0 32px; }
+
+    .pj-header {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .pj-lead { max-width: none; }
+
+    /* Clean 2×2 grid — no orphaned rows */
+    .pj-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .pj-card--lg   { grid-row: auto; }
+    .pj-card--wide { grid-column: auto; }
+    .pj-card--lg .pj-visual   { aspect-ratio: 16 / 9; }
+    .pj-card--wide .pj-visual { aspect-ratio: 16 / 9; }
+  }
+
+  @media (max-width: 600px) {
+    .pj { padding: 64px 0 56px; }
+    .pj-inner { padding: 0 20px; }
+
+    .pj-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .pj-card--wide { grid-column: auto; }
+    .pj-card--wide .pj-visual { aspect-ratio: 16 / 9; }
+    .pj-card--lg .pj-visual   { aspect-ratio: 16 / 9; }
+    .pj-meta { padding: 14px 16px; gap: 12px; }
+    .pj-type { display: none; }
+  }
+</style>

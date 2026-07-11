@@ -1,0 +1,220 @@
+---
+const steps = [
+  {
+    num: "01",
+    phase: "Brief",
+    title: "Listen first.",
+    desc: "Every project begins with deep listening. We immerse ourselves in your life, your aspirations, and the story of the site before a single line is drawn.",
+  },
+  {
+    num: "02",
+    phase: "Concept",
+    title: "Define the idea.",
+    desc: "A single governing idea — spatial, material, experiential — becomes the compass for every decision that follows. Clarity of concept is everything.",
+  },
+  {
+    num: "03",
+    phase: "Design",
+    title: "Develop and detail.",
+    desc: "From massing to materiality, we resolve every element with the same rigour. Technical excellence is not separate from beauty — it is its foundation.",
+  },
+  {
+    num: "04",
+    phase: "Build",
+    title: "Craft on site.",
+    desc: "We remain closely involved throughout construction, working with master craftspeople to ensure the built work matches the precision of the design.",
+  },
+  {
+    num: "05",
+    phase: "Live",
+    title: "Space as lived.",
+    desc: "Architecture only becomes real when it's inhabited. We revisit completed projects, listening to how space performs over time — and learning from it.",
+  },
+];
+---
+
+<section class="pr" id="process" aria-labelledby="pr-heading">
+  <div class="pr-inner">
+
+    <div class="pr-header reveal">
+      <span class="pr-eyebrow">
+        <span class="pr-bar" aria-hidden="true"></span>
+        Our Process
+      </span>
+      <h2 class="pr-heading" id="pr-heading">
+        How we work<br/><em>— from first word<br/>to final key.</em>
+      </h2>
+    </div>
+
+    <ol class="pr-steps" aria-label="Our five-phase process">
+      {steps.map((s, i) => (
+        <li class={`pr-step reveal d${Math.min(i + 1, 5)}`}>
+          <div class="pr-step-top">
+            <span class="pr-step-num" aria-hidden="true">{s.num}</span>
+            <span class="pr-step-phase">{s.phase}</span>
+            <div class="pr-step-connector" aria-hidden="true"></div>
+          </div>
+          <div class="pr-step-body">
+            <h3 class="pr-step-title">{s.title}</h3>
+            <p class="pr-step-desc">{s.desc}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+  </div>
+</section>
+
+<style>
+  .pr {
+    padding: 120px 0;
+    background: var(--bg-2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pr-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .pr-header {
+    display: flex;
+    align-items: flex-end;
+    gap: 64px;
+    margin-bottom: 72px;
+    flex-wrap: wrap;
+  }
+
+  .pr-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 8px;
+  }
+  .pr-bar {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .pr-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 3vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.12;
+    color: var(--ink);
+  }
+  .pr-heading em {
+    font-style: italic;
+    color: var(--muted);
+  }
+
+  /* Steps: horizontal on desktop */
+  .pr-steps {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0;
+    list-style: none;
+  }
+
+  .pr-step { display: flex; flex-direction: column; }
+
+  .pr-step-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .pr-step-num {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--bg);
+    background: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    letter-spacing: 0.04em;
+    transition: background 0.25s;
+  }
+  .pr-step:hover .pr-step-num { background: var(--accent); }
+
+  .pr-step-phase {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-left: 10px;
+  }
+
+  /* Connector line between steps */
+  .pr-step-connector {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    margin-left: 10px;
+  }
+  .pr-step:last-child .pr-step-connector { display: none; }
+
+  .pr-step-body { padding-right: 32px; }
+  .pr-step:last-child .pr-step-body { padding-right: 0; }
+
+  .pr-step-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .pr-step-desc {
+    font-size: 0.85rem;
+    line-height: 1.74;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* Responsive */
+  @media (max-width: 1100px) {
+    .pr-inner { padding: 0 36px; }
+    .pr-steps { grid-template-columns: repeat(3, 1fr); gap: 32px 0; }
+    .pr-step:nth-child(3) .pr-step-connector { display: none; }
+  }
+
+  @media (max-width: 860px) {
+    .pr { padding: 80px 0; }
+    .pr-inner { padding: 0 32px; }
+    .pr-header { gap: 24px; margin-bottom: 48px; flex-direction: column; align-items: flex-start; }
+    .pr-steps { grid-template-columns: repeat(2, 1fr); gap: 32px 20px; }
+    .pr-step:nth-child(2) .pr-step-connector { display: none; }
+    .pr-step:nth-child(3) .pr-step-connector { display: block; }
+    .pr-step:nth-child(4) .pr-step-connector { display: none; }
+    .pr-step-body { padding-right: 0; }
+  }
+
+  @media (max-width: 560px) {
+    .pr { padding: 64px 0; }
+    .pr-inner { padding: 0 20px; }
+    .pr-steps { grid-template-columns: 1fr; gap: 28px; }
+    .pr-step-connector { display: none !important; }
+    .pr-step-top { margin-bottom: 16px; }
+  }
+</style>

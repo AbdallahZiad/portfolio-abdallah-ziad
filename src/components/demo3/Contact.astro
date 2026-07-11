@@ -1,0 +1,333 @@
+---
+---
+<section class="ct" id="contact" aria-labelledby="ct-heading">
+  <div class="ct-inner">
+
+    <!-- Left: CTA text -->
+    <div class="ct-copy">
+      <span class="ct-eyebrow reveal">
+        <span class="ct-bar" aria-hidden="true"></span>
+        Get in touch
+      </span>
+
+      <h2 class="ct-heading reveal d1" id="ct-heading">
+        Let's begin<br/>a <em>conversation.</em>
+      </h2>
+
+      <p class="ct-lead reveal d2">
+        We take on a limited number of commissions each year,
+        ensuring every project receives our full attention. Tell
+        us about what you're imagining.
+      </p>
+
+      <address class="ct-offices reveal d3">
+        <div class="ct-office">
+          <span class="ct-office-city">Porto</span>
+          <span class="ct-office-addr">Rua de Santa Catarina 412<br/>4000-442 Porto</span>
+        </div>
+        <div class="ct-office">
+          <span class="ct-office-city">Lisbon</span>
+          <span class="ct-office-addr">Av. da Liberdade 88, 3°<br/>1250-096 Lisboa</span>
+        </div>
+        <div class="ct-office">
+          <span class="ct-office-city">London</span>
+          <span class="ct-office-addr">14 Clerkenwell Green<br/>EC1R 0DP London</span>
+        </div>
+      </address>
+
+      <div class="ct-contact-info reveal d4">
+        <a href="mailto:studio@stratum.studio" class="ct-link">studio@stratum.studio</a>
+        <a href="tel:+351222001234" class="ct-link">+351 222 001 234</a>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="ct-form-wrap reveal d2">
+      <form class="ct-form" aria-label="Project enquiry form" onsubmit="
+        event.preventDefault();
+        var btn = this.querySelector('.ct-submit');
+        var label = btn.querySelector('.ct-submit-label');
+        label.textContent = 'Message received — we\'ll be in touch.';
+        btn.disabled = true;
+        btn.style.opacity = '0.7';
+      ">
+        <div class="ct-row ct-row--2">
+          <div class="ct-field">
+            <label class="ct-label" for="ct-name">Name</label>
+            <input class="ct-input" type="text" id="ct-name" name="name"
+              placeholder="Your full name" autocomplete="name"/>
+          </div>
+          <div class="ct-field">
+            <label class="ct-label" for="ct-email">Email</label>
+            <input class="ct-input" type="email" id="ct-email" name="email"
+              placeholder="your@email.com" autocomplete="email"/>
+          </div>
+        </div>
+
+        <div class="ct-field">
+          <label class="ct-label" for="ct-type">Project type</label>
+          <select class="ct-input ct-select" id="ct-type" name="type">
+            <option value="" disabled selected>Select a typology</option>
+            <option>Residential — Private Home</option>
+            <option>Residential — Multi-Unit</option>
+            <option>Commercial</option>
+            <option>Hospitality</option>
+            <option>Cultural / Civic</option>
+            <option>Interior Design only</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="ct-row ct-row--2">
+          <div class="ct-field">
+            <label class="ct-label" for="ct-location">Project location</label>
+            <input class="ct-input" type="text" id="ct-location" name="location"
+              placeholder="City, Country"/>
+          </div>
+          <div class="ct-field">
+            <label class="ct-label" for="ct-budget">Approximate budget</label>
+            <select class="ct-input ct-select" id="ct-budget" name="budget">
+              <option value="" disabled selected>Select range</option>
+              <option>Under €500k</option>
+              <option>€500k – €1M</option>
+              <option>€1M – €5M</option>
+              <option>€5M – €20M</option>
+              <option>Over €20M</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="ct-field">
+          <label class="ct-label" for="ct-message">Tell us about your project</label>
+          <textarea class="ct-input ct-textarea" id="ct-message" name="message"
+            placeholder="Share as much as you'd like — the site, your vision, your timeline…"
+            rows="5"></textarea>
+        </div>
+
+        <button class="ct-submit" type="submit">
+          <span class="ct-submit-label">Send enquiry</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M2.5 8h11M9.5 4l4 4-4 4" stroke="currentColor" stroke-width="1.4"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .ct {
+    padding: 130px 0 110px;
+    background: #0C0F0B;
+    color: var(--ink);
+  }
+
+  .ct-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* Copy */
+  .ct-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245, 241, 233, 0.45);
+    margin-bottom: 24px;
+  }
+  .ct-bar {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .ct-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 3.2vw, 3.6rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--bg);
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+  .ct-heading em {
+    font-style: italic;
+    color: rgba(196, 149, 58, 0.90);
+  }
+
+  .ct-lead {
+    font-size: 0.95rem;
+    line-height: 1.78;
+    font-weight: 300;
+    color: rgba(245, 241, 233, 0.58);
+    margin-bottom: 48px;
+  }
+
+  .ct-offices {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-style: normal;
+    margin-bottom: 36px;
+  }
+
+  .ct-office { display: flex; gap: 20px; align-items: baseline; }
+
+  .ct-office-city {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(245, 241, 233, 0.35);
+    min-width: 60px;
+    flex-shrink: 0;
+  }
+
+  .ct-office-addr {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    font-weight: 300;
+    color: rgba(245, 241, 233, 0.55);
+  }
+
+  .ct-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ct-link {
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: rgba(245, 241, 233, 0.55);
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+    width: fit-content;
+    border-bottom: 1px solid rgba(245,241,233,0.15);
+    padding-bottom: 1px;
+  }
+  @media (hover: hover) {
+    .ct-link:hover { color: var(--bg); border-color: rgba(245,241,233,0.45); }
+  }
+
+  /* Form */
+  .ct-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .ct-row { display: grid; gap: 20px; }
+  .ct-row--2 { grid-template-columns: 1fr 1fr; }
+
+  .ct-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .ct-label {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245, 241, 233, 0.45);
+  }
+
+  .ct-input {
+    background: rgba(245, 241, 233, 0.06);
+    border: 1px solid rgba(245, 241, 233, 0.14);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--bg);
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .ct-input::placeholder { color: rgba(245, 241, 233, 0.24); }
+  .ct-input:focus {
+    border-color: rgba(245, 241, 233, 0.45);
+    background: rgba(245, 241, 233, 0.09);
+  }
+
+  .ct-select {
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(245,241,233,0.4)' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    cursor: pointer;
+  }
+  .ct-select option { background: #1a1916; color: var(--bg); }
+
+  .ct-textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+
+  .ct-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 16px 32px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-body);
+    font-size: 0.84rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background 0.25s var(--ease), transform 0.25s var(--ease-out),
+      box-shadow 0.25s var(--ease);
+    box-shadow: 0 2px 20px rgba(196,149,58,0.35);
+  }
+  @media (hover: hover) {
+    .ct-submit:hover {
+      background: var(--accent-dk);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(196,149,58,0.45);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 1100px) {
+    .ct-inner { padding: 0 36px; gap: 60px; }
+  }
+
+  @media (max-width: 860px) {
+    .ct { padding: 90px 0 80px; }
+    .ct-inner {
+      grid-template-columns: 1fr;
+      gap: 56px;
+      padding: 0 32px;
+    }
+    .ct-offices { flex-direction: row; flex-wrap: wrap; gap: 24px 40px; }
+    .ct-office { flex-direction: column; gap: 4px; }
+    .ct-office-city { min-width: unset; }
+  }
+
+  @media (max-width: 560px) {
+    .ct { padding: 72px 0 64px; }
+    .ct-inner { padding: 0 20px; }
+    .ct-row--2 { grid-template-columns: 1fr; }
+    .ct-offices { flex-direction: column; gap: 16px; }
+    .ct-office { flex-direction: row; gap: 16px; align-items: baseline; }
+    .ct-submit { width: 100%; }
+  }
+</style>

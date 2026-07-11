@@ -1,0 +1,242 @@
+---
+const links = [
+  { label: "Work",    href: "#work" },
+  { label: "Studio",  href: "#studio" },
+  { label: "Journal", href: "#journal" },
+  { label: "Contact", href: "#contact" },
+];
+---
+
+<header class="sn" id="sn">
+  <div class="sn-inner">
+    <a href="#top" class="sn-brand" aria-label="Stratum — home">
+      <span class="sn-mark" aria-hidden="true">S</span>
+      <span class="sn-name">STRATUM</span>
+    </a>
+
+    <nav class="sn-links" aria-label="Primary">
+      {links.map(l => <a href={l.href} class="sn-link">{l.label}</a>)}
+    </nav>
+
+    <a href="#contact" class="sn-cta">Enquire <span aria-hidden="true">↗</span></a>
+
+    <button class="sn-toggle" id="snToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="sn-mobile" id="snMobile">
+    {links.map(l => <a href={l.href} class="snm-link">{l.label}</a>)}
+    <a href="#contact" class="sn-cta snm-cta">Enquire ↗</a>
+  </div>
+</header>
+
+<style>
+  .sn {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    transition: background 0.4s var(--ease), border-color 0.3s var(--ease),
+      backdrop-filter 0.4s var(--ease);
+    border-bottom: 1px solid transparent;
+  }
+  .sn.scrolled, .sn.open {
+    background: rgba(22, 28, 20, 0.95);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border-bottom-color: var(--border);
+  }
+
+  .sn-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 48px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .sn-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+  .sn-mark {
+    width: 34px;
+    height: 34px;
+    border: 1.5px solid var(--ink);
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s;
+  }
+  @media (hover: hover) {
+    .sn-brand:hover .sn-mark {
+      background: var(--ink);
+      color: var(--bg);
+    }
+  }
+  .sn-name {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    color: var(--ink);
+  }
+
+  .sn-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 38px;
+  }
+  .sn-link {
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    transition: color 0.2s var(--ease);
+    position: relative;
+  }
+  .sn-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s var(--ease);
+  }
+  @media (hover: hover) {
+    .sn-link:hover { color: var(--ink); }
+    .sn-link:hover::after { transform: scaleX(1); }
+  }
+
+  .sn-cta {
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+    padding: 9px 20px;
+    border-radius: var(--radius-pill);
+    transition: background 0.25s var(--ease), color 0.25s var(--ease), transform 0.25s var(--ease-out);
+    flex-shrink: 0;
+  }
+  @media (hover: hover) {
+    .sn-cta:hover {
+      background: var(--ink);
+      color: var(--bg);
+      transform: translateY(-1px);
+    }
+  }
+
+  /* Toggle */
+  .sn-toggle {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+  }
+  .sn-toggle span {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+  }
+  .sn-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .sn-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .sn-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* Mobile nav */
+  .sn-mobile {
+    display: none;
+    flex-direction: column;
+    background: rgba(22, 28, 20, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s var(--ease), opacity 0.3s var(--ease),
+      padding-top 0.4s var(--ease), padding-bottom 0.4s var(--ease);
+  }
+  .sn-mobile.open {
+    max-height: 400px;
+    opacity: 1;
+    padding-top: 16px;
+    padding-bottom: 28px;
+  }
+  .snm-link {
+    padding: 15px 0;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    border-bottom: 1px solid var(--line);
+    transition: color 0.2s;
+  }
+  .snm-link:hover { color: var(--ink); }
+  .snm-cta {
+    align-self: flex-start;
+    margin-top: 22px;
+  }
+
+  @media (max-width: 980px) {
+    .sn-links { display: none; }
+    .sn-cta { display: none; }
+    .sn-toggle { display: flex; }
+    .sn-mobile { display: flex; }
+  }
+  @media (max-width: 600px) {
+    .sn-inner    { padding: 0 24px; }
+    .sn-mobile   { padding-left: 24px; padding-right: 24px; }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var nav    = document.getElementById('sn');
+    var toggle = document.getElementById('snToggle');
+    var mobile = document.getElementById('snMobile');
+
+    window.addEventListener('scroll', function () {
+      nav.classList.toggle('scrolled', window.scrollY > 24);
+    }, { passive: true });
+
+    function setOpen(open) {
+      toggle.setAttribute('aria-expanded', String(open));
+      mobile.classList.toggle('open', open);
+      nav.classList.toggle('open', open);
+    }
+    toggle.addEventListener('click', function () {
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+    mobile.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(false); });
+    });
+    window.matchMedia('(min-width: 981px)').addEventListener('change', function (e) {
+      if (e.matches) setOpen(false);
+    });
+  })();
+</script>

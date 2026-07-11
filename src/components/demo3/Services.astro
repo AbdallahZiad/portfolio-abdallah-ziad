@@ -1,0 +1,203 @@
+---
+const services = [
+  {
+    num: "01",
+    title: "Architecture",
+    desc: "From concept to completion — new builds, extensions, and masterplans that respond to site, climate, and culture.",
+  },
+  {
+    num: "02",
+    title: "Interior Design",
+    desc: "Layered, considered interiors that move between material richness and spatial clarity. Every room tells a story.",
+  },
+  {
+    num: "03",
+    title: "Urban Planning",
+    desc: "Mixed-use neighbourhoods, public realm strategies, and high-density living — designed for people at every scale.",
+  },
+  {
+    num: "04",
+    title: "Hospitality",
+    desc: "Hotels, resorts, and restaurants built around the art of arrival — where first impressions become lasting ones.",
+  },
+  {
+    num: "05",
+    title: "Cultural",
+    desc: "Museums, galleries, and civic buildings that honour their communities and endure across generations.",
+  },
+  {
+    num: "06",
+    title: "Landscape",
+    desc: "Outdoor spaces as a natural extension of the interior — terraces, gardens, and public squares that breathe.",
+  },
+];
+---
+
+<section class="sv" id="services" aria-labelledby="sv-heading">
+  <div class="sv-inner">
+
+    <div class="sv-header reveal">
+      <span class="sv-eyebrow">
+        <span class="sv-bar" aria-hidden="true"></span>
+        Services
+      </span>
+      <h2 class="sv-heading" id="sv-heading">What we<br/>bring to<br/><em>every brief.</em></h2>
+    </div>
+
+    <ul class="sv-list" role="list">
+      {services.map((s, i) => (
+        <li class={`sv-item reveal d${Math.min(i + 1, 6)}`} role="listitem">
+          <span class="sv-num" aria-hidden="true">{s.num}</span>
+          <div class="sv-body">
+            <h3 class="sv-title">{s.title}</h3>
+            <p class="sv-desc">{s.desc}</p>
+          </div>
+          <span class="sv-arrow" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10h12M11.5 5.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.3"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </li>
+      ))}
+    </ul>
+
+  </div>
+</section>
+
+<style>
+  .sv {
+    padding: 120px 0;
+    background: var(--bg);
+  }
+
+  .sv-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 5fr);
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* Header */
+  .sv-header { position: sticky; top: 96px; }
+
+  .sv-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .sv-bar {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .sv-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 2.8vw, 3rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  .sv-heading em {
+    font-style: italic;
+    color: var(--muted);
+  }
+
+  /* Service list */
+  .sv-list {
+    list-style: none;
+  }
+
+  .sv-item {
+    display: grid;
+    grid-template-columns: 48px 1fr 36px;
+    gap: 24px;
+    align-items: start;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.25s var(--ease);
+    cursor: default;
+  }
+  .sv-item:first-child { border-top: 1px solid var(--border); }
+
+  @media (hover: hover) {
+    .sv-item:hover { background: transparent; }
+    .sv-item:hover .sv-title { color: var(--accent); }
+    .sv-item:hover .sv-arrow { color: var(--accent); transform: translateX(4px); }
+  }
+
+  .sv-num {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--dim);
+    letter-spacing: 0.06em;
+    padding-top: 4px;
+  }
+
+  .sv-body { min-width: 0; }
+
+  .sv-title {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 8px;
+    transition: color 0.2s;
+    letter-spacing: -0.01em;
+  }
+
+  .sv-desc {
+    font-size: 0.88rem;
+    line-height: 1.72;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 560px;
+  }
+
+  .sv-arrow {
+    color: var(--dim);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 6px;
+    transition: color 0.2s var(--ease), transform 0.25s var(--ease-out);
+    flex-shrink: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 1100px) {
+    .sv-inner { padding: 0 36px; gap: 56px; }
+  }
+
+  @media (max-width: 860px) {
+    .sv { padding: 80px 0; }
+    .sv-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 0 32px;
+    }
+    .sv-header { position: static; }
+    .sv-item { grid-template-columns: 40px 1fr 28px; gap: 16px; }
+  }
+
+  @media (max-width: 560px) {
+    .sv { padding: 64px 0; }
+    .sv-inner { padding: 0 20px; }
+    .sv-item { grid-template-columns: 36px 1fr; gap: 12px; padding: 22px 0; }
+    .sv-arrow { display: none; }
+    .sv-title { font-size: 1.25rem; }
+  }
+</style>

@@ -1,0 +1,252 @@
+---
+const links = [
+  { label: "Work",    href: "#work" },
+  { label: "Studio",  href: "#studio" },
+  { label: "Services",href: "#services" },
+  { label: "Process", href: "#process" },
+  { label: "Journal", href: "#journal" },
+  { label: "Contact", href: "#contact" },
+];
+---
+
+<footer class="ft" role="contentinfo">
+  <div class="ft-inner">
+
+    <div class="ft-top">
+      <a href="#top" class="ft-brand" aria-label="Stratum — back to top">
+        <span class="ft-mark" aria-hidden="true">S</span>
+        <span class="ft-name">STRATUM</span>
+      </a>
+      <p class="ft-tagline">Architecture &amp; Interior Design</p>
+    </div>
+
+    <div class="ft-mid">
+      <nav class="ft-nav" aria-label="Footer navigation">
+        {links.map(l => <a href={l.href} class="ft-nav-link">{l.label}</a>)}
+      </nav>
+
+      <div class="ft-awards">
+        <span class="ft-award-label">Recognition</span>
+        <div class="ft-award-list">
+          <span>RIBA Award 2023</span>
+          <span class="ft-dot" aria-hidden="true">·</span>
+          <span>Dezeen Architecture Award</span>
+          <span class="ft-dot" aria-hidden="true">·</span>
+          <span>AD100 Europe</span>
+          <span class="ft-dot" aria-hidden="true">·</span>
+          <span>Frame Award Finalist</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-bottom">
+      <span class="ft-copy">© 2024 Stratum Studio. All rights reserved.</span>
+      <div class="ft-legal">
+        <a href="#" class="ft-leg">Privacy policy</a>
+        <a href="#" class="ft-leg">Cookie settings</a>
+      </div>
+      <div class="ft-social" aria-label="Social links">
+        <a href="#" class="ft-soc" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="#" class="ft-soc" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        <a href="#" class="ft-soc" aria-label="Pinterest">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.76 1.22-5.17 1.22-5.17s-.31-.63-.31-1.56c0-1.46.85-2.55 1.9-2.55.9 0 1.33.67 1.33 1.48 0 .9-.58 2.26-.88 3.52-.25 1.05.52 1.9 1.55 1.9 1.86 0 3.11-2.39 3.11-5.22 0-2.15-1.45-3.75-4.06-3.75-2.96 0-4.79 2.21-4.79 4.67 0 .85.25 1.44.64 1.9.18.21.2.3.14.54-.05.17-.15.58-.19.74-.06.24-.25.32-.46.23C6.4 15.04 6 13.67 6 12.3c0-2.94 2.48-6.47 7.41-6.47 3.96 0 6.58 2.87 6.58 5.95 0 4.08-2.26 7.13-5.58 7.13-1.11 0-2.16-.6-2.52-1.27l-.68 2.62c-.25.96-.91 2.16-1.36 2.89.77.24 1.59.37 2.44.37 5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .ft {
+    background: #0C0F0B;
+    color: var(--ink);
+    padding: 64px 0 36px;
+    border-top: 1px solid rgba(245, 241, 233, 0.08);
+  }
+
+  .ft-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .ft-top {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(245, 241, 233, 0.08);
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+
+  .ft-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .ft-mark {
+    width: 34px;
+    height: 34px;
+    border: 1.5px solid rgba(245, 241, 233, 0.25);
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--ink);
+    border-radius: 2px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  @media (hover: hover) {
+    .ft-brand:hover .ft-mark {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+  }
+  .ft-name {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    color: rgba(245, 241, 233, 0.7);
+  }
+
+  .ft-tagline {
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: rgba(245, 241, 233, 0.28);
+    padding-left: 24px;
+    border-left: 1px solid rgba(245, 241, 233, 0.12);
+  }
+
+  .ft-mid {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(245, 241, 233, 0.08);
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+
+  .ft-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 28px;
+  }
+
+  .ft-nav-link {
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: rgba(245, 241, 233, 0.45);
+    transition: color 0.2s;
+  }
+  @media (hover: hover) {
+    .ft-nav-link:hover { color: var(--ink); }
+  }
+
+  .ft-awards { display: flex; flex-direction: column; gap: 8px; text-align: right; }
+  .ft-award-label {
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(245, 241, 233, 0.25);
+  }
+  .ft-award-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    justify-content: flex-end;
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: rgba(245, 241, 233, 0.35);
+  }
+  .ft-dot { color: var(--accent); opacity: 0.5; }
+
+  .ft-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .ft-copy {
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: rgba(245, 241, 233, 0.28);
+  }
+
+  .ft-legal {
+    display: flex;
+    gap: 20px;
+  }
+
+  .ft-leg {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: rgba(245, 241, 233, 0.28);
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  @media (hover: hover) {
+    .ft-leg:hover { color: rgba(245, 241, 233, 0.65); }
+  }
+
+  .ft-social {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .ft-soc {
+    color: rgba(245, 241, 233, 0.32);
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+  }
+  @media (hover: hover) {
+    .ft-soc:hover { color: var(--ink); }
+  }
+
+  /* Responsive */
+  @media (max-width: 1100px) {
+    .ft-inner { padding: 0 36px; }
+  }
+
+  @media (max-width: 860px) {
+    .ft-inner { padding: 0 32px; }
+    .ft-mid { flex-direction: column; }
+    .ft-awards { text-align: left; }
+    .ft-award-list { justify-content: flex-start; }
+    .ft-bottom { gap: 14px; }
+  }
+
+  @media (max-width: 560px) {
+    .ft { padding: 48px 0 28px; }
+    .ft-inner { padding: 0 20px; }
+    .ft-tagline { display: none; }
+    .ft-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .ft-legal { flex-wrap: wrap; gap: 12px; }
+    .ft-social { margin-top: 4px; }
+  }
+</style>
