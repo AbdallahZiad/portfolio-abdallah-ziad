@@ -12,15 +12,17 @@ npm run preview  # preview the production build
 
 ## Architecture
 
-Astro 4.x static site. Three routes, no external images — all visuals are pure CSS or inline SVG.
+Astro 4.x static site. One public route, no external images — all visuals are pure CSS or inline SVG.
+
+The demo pages are archived, not deleted: they live in `src/pages/_demo/` (the `_` prefix keeps Astro from routing them) and their preview images in `archive/previews/` (outside `public/`). To restore them, rename the folder back to `src/pages/demo/`, move the previews back to `public/previews/`, and re-add `<Demos />` plus the nav link.
 
 | Route | Page file | Layout |
 |---|---|---|
 | `/` | `src/pages/index.astro` | `src/layouts/Layout.astro` |
-| `/demo/1` | `src/pages/demo/1.astro` | `src/layouts/Demo1Layout.astro` |
-| `/demo/2` | `src/pages/demo/2.astro` | `src/layouts/Demo2Layout.astro` |
+| `/demo/1` (archived) | `src/pages/_demo/1.astro` | `src/layouts/Demo1Layout.astro` |
+| `/demo/2` (archived) | `src/pages/_demo/2.astro` | `src/layouts/Demo2Layout.astro` |
 
-**Portfolio (`/`)** — assembles components from `src/components/` in order: Nav → Hero → Build → Demos → Experience → Specialization → Skills → Contact → Footer.
+**Portfolio (`/`)** — assembles components from `src/components/` in order: Nav → Hero → Build → Experience → Specialization → Skills → Contact → Footer.
 
 **Nebula (`/demo/1`)** — AI SaaS landing page. Components in `src/components/demo1/`. Violet/pink/cyan token palette. `ScrollReveal.astro` wires the `.reveal` / `.is-visible` IntersectionObserver.
 
