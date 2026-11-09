@@ -22,7 +22,7 @@ The demo pages are archived, not deleted: they live in `src/pages/_demo/` (the `
 | `/demo/1` (archived) | `src/pages/_demo/1.astro` | `src/layouts/Demo1Layout.astro` |
 | `/demo/2` (archived) | `src/pages/_demo/2.astro` | `src/layouts/Demo2Layout.astro` |
 
-**Portfolio (`/`)** — assembles components from `src/components/` in order: Nav → Hero → Build → Experience → Specialization → Skills → Contact → Footer.
+**Portfolio (`/`)** — assembles components from `src/components/` in order: Nav → Hero → Build → Experience → Skills → Contact → Footer.
 
 **Nebula (`/demo/1`)** — AI SaaS landing page. Components in `src/components/demo1/`. Violet/pink/cyan token palette. `ScrollReveal.astro` wires the `.reveal` / `.is-visible` IntersectionObserver.
 
